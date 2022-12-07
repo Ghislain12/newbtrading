@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
@@ -18,10 +20,16 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->lastName(),
+            'firstname' => fake()->firstName(),
+            'civility' => fake()->randomElement(['monsieur', 'madame']),
+            'phone' => fake()->phoneNumber(),
+            'country' => fake()->country(),
+            'status_id' => Status::all()->random()->id,
             'email' => fake()->unique()->safeEmail(),
+            'account_status' => fake()->randomElement([0,1]),
+            'password' => Hash::make('123456789'), // password
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
     }

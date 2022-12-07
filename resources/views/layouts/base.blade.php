@@ -16,7 +16,9 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-
+    <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
@@ -29,11 +31,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
+<x-header></x-header>
+
+{{--
+
 <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
-    <x-header></x-header>
-    @yield('body')
+    --}}
+
+    <body>
+
+        @yield('body')
+    </body>
     <x-footer></x-footer>
-</body>
-<x-scripts></x-scripts>
+    {{-- <x-scripts></x-scripts> --}}
 
 </html>

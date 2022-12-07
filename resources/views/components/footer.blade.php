@@ -1,7 +1,7 @@
-<footer class="bg-white">
+<footer class="bg-white" style="margin-top: 70px;">
     <div class="container mx-auto px-8">
-        <div class="w-full flex flex-col md:flex-row py-6">
-            <div class="flex-1 mb-6 text-black">
+        <div class="w-full  flex flex-col md:flex-row py-6">
+            <div class="flex-1  mt-20 mb-6 text-black">
                 <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
                     <!--Icon from: http://www.potlabicons.com/ -->
                     <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +70,4 @@
             </div>
         </div>
     </div>
-    <a href="https://www.freepik.com/free-photos-vectors/background" class="text-gray-500">Background vector created by
-        freepik - www.freepik.com</a>
 </footer>
