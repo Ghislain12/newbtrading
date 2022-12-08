@@ -41,7 +41,8 @@ class Register extends Component
     public function getClientId(): string
     {
         $client_status = Status::where('label', 'client')->first();
-        return $status_id = (string) $client_status->id ?? null;
+        $status_id = (string) $client_status->id ?? null;
+        return $status_id;
     }
 
     public function register()
@@ -55,7 +56,6 @@ class Register extends Component
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
         ]);
-        dd($this->getClientId);
         $user = User::create([
             'email' => $this->email,
             'name' => $this->name,

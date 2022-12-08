@@ -10,6 +10,7 @@ use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Livewire\ClientOperations;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,5 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 
     Route::get('dashboard', Dashboard::class)->name('users.dashboard');
-    // Route::get
-    
+    Route::get('clients/{id}', ClientOperations::class)->name('clients.operations');
 });
