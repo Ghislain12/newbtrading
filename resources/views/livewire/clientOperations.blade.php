@@ -1,15 +1,15 @@
 @section('title', 'Détail client')
 <div class="flex flex-col min-h-screen py-12 sm:px-6 lg:px-8">
-    <div class="text-center mt-5 ">
+    <div class="mt-5 text-center ">
         @if ($user->avatar == null)
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . $user->name. '+' . $user->firstname}}"
-            class="rounded-full w-32 mb-4 mx-auto" alt="Avatar" />
+            class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
         @else
-        <img src="{{ asset('image/'.$user->image) }}" class="rounded-full w-32 mb-4 mx-auto" alt="Avatar" />
+        <img src="{{ asset('image/'.$user->image) }}" class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
         @endif
-        <h5 class="text-xl font-medium leading-tight mb-2 uppercase">{{ $user->name }} {{ $user->firstname }}</h5>
+        <h5 class="mb-2 text-xl font-medium leading-tight uppercase">{{ $user->name }} {{ $user->firstname }}</h5>
     </div>
-    <div class="h-24 p-4 flex-wrap justify-between content-center flex flex-row w-full bg-slate-400">
+    <div class="flex flex-row flex-wrap content-center justify-between w-full h-24 p-4 bg-slate-400">
         <div>
             <div class="flex flex-row">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -48,122 +48,66 @@
                 $user->country }}</span>
         </div>
     </div>
-    <h2 class="mt-10 text-3xl mb-5 font-extrabold leading-9 text-center text-gray-900">
+    <h2 class="mt-10 mb-5 text-3xl font-extrabold leading-9 text-center text-gray-900">
         Récentes activités
     </h2>
     <div>
         <div>
-            <ul class=" text-sm font-medium text-center text-gray-500 rounded-lg divide-x divide-gray-200 shadow sm:flex dark:divide-gray-700 dark:text-gray-400"
+            <ul class="text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400"
                 id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                <li class=" w-full">
+                <li class="w-full ">
                     <a href="#" id="loan-tab" data-tabs-target="#loan" type="button" role="tab" aria-controls="loan"
                         aria-selected="false"
-                        class="inline-block p-4 w-full text-gray-900 bg-gray-100 rounded-l-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white"
+                        class="inline-block w-full p-4 text-gray-900 bg-gray-100 rounded-l-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white"
                         aria-current="page">Demandes de prêts
                     </a>
                 </li>
                 <li class="w-full">
                     <a href="#" id="investment-tab" data-tabs-target="#investment" type="button" role="tab"
                         aria-controls="investment" aria-selected="false"
-                        class="inline-block p-4 w-full bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Demandes
+                        class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Demandes
                         d'investissement
                     </a>
                 </li>
                 <li class="w-full">
                     <a href="#" id="saving-tab" data-tabs-target="#saving" type="button" role="tab"
                         aria-controls="saving" aria-selected="false"
-                        class="inline-block p-4 w-full bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Demandes
+                        class="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Demandes
                         d'épargne
                     </a>
                 </li>
             </ul>
         </div>
         <div id="myTabContent">
-            <div class="hidden bg-gray-50 rounded-lg dark:bg-gray-800" id="loan" role="tabpanel"
+            <div class="hidden rounded-lg bg-gray-50 dark:bg-gray-800" id="loan" role="tabpanel"
                 aria-labelledby="loan-tab">
                 @if (count($loans) > 0)
-                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-4 sm:px-6 lg:px-8">
-                        <table class="min-w-full text-center">
-                            <thead class="bg-orange-400 border-b">
-                                <tr>
-                                    <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                        Date
-                                    </th>
-                                    <th scope="col" class="px-6 py-4 w-60 text-sm font-medium text-white">
-                                        Objectif
-                                    </th>
-                                    <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                        Montant
-                                    </th>
-                                    <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                        Date de remboursement
-                                    </th>
-                                    <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                        Revenu
-                                    </th>
-                                    <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                        Statut
-                                    </th>
-                                </tr>
-                            </thead class="border-b">
-                            <tbody>
-                                @foreach ($loans as $item)
-                                <tr>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
-                                        $item->created_at->diffForHumans() }}</td>
-                                    <td class="px-6 py-4 text-sm w-60 font-light text-gray-900 whitespace-nowrap"
-                                        data-bs-toggle="tooltip" title="{{ $item->objectif }}">{{
-                                        substr($item->objectif, 0,20) }} ...</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
-                                        $item->amount }}</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
-                                        $item->period }}</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
-                                        $item->income }}</td>
-                                    @if ($item->status == false)
-                                    <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap"><span
-                                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">En
-                                            cours</span></td>
-                                    @else
-                                    <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap"><span
-                                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Validé</span>
-                                    </td>
-                                    @endif
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <x-user_loan :loans="$loans"></x-user_loan>
                 @else
-                <p class="text-sm mt-10 text-gray-500 text-center dark:text-gray-400">
+                <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
                     <strong class="font-medium text-gray-800 dark:text-white">Aucune demande de prêt pour le moment
                     </strong>.
                 </p>
                 @endif
             </div>
-            <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="investment" role="tabpanel"
+            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="investment" role="tabpanel"
                 aria-labelledby="investment-tab">
-                @if ($investments == null)
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                    <strong class="font-medium text-gray-800 dark:text-white">Aucune demande de prêt
-                    </strong>.
-                </p>
+                @if (count($investments) > 0)
+                <x-user_investment :investments="$investments"></x-user_investment>
                 @else
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                    <strong class="font-medium text-gray-800 dark:text-white">existe
+                <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
+                    <strong class="font-medium text-gray-800 dark:text-white">Aucune demande d'investissement
                     </strong>.
                 </p>
                 @endif
             </div>
-            <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="saving" role="tabpanel"
+            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="saving" role="tabpanel"
                 aria-labelledby="saving-tab">
                 @if ($investments == null)
-                <p class="text-sm text-gray-500 dark:text-gray-400">
+                {{-- <p class="text-sm text-gray-500 dark:text-gray-400">
                     <strong class="font-medium text-gray-800 dark:text-white">Aucune demande de prêt
                     </strong>.
-                </p>
+                </p> --}}
                 @else
                 <p class="text-sm text-gray-500 dark:text-gray-400">
                     <strong class="font-medium text-gray-800 dark:text-white">yes
