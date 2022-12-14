@@ -41,7 +41,7 @@
                                 {{ $item->amount }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                {{ $item->period }}
+                                {{ $item->refund_deadline   }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                 {{ $item->income }}

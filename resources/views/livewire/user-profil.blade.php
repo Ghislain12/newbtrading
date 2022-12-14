@@ -146,10 +146,9 @@
             </div>
         </div>
     </div>
-</div>
 
-<x-loan-add :groups="$groups"></x-loan-add>
-<x-saving-add>
-    </x-loan-add>
-    <x-investment-add>
-        </x-loan-add>
+</div>
+@livewire('add-loan')
+{{-- <x-loan-add :groups="$groups"></x-loan-add> --}}
+<x-investment-add :groups="$groups"></x-investment-add>
+<x-saving-add :groups="$groups"></x-saving-add>

@@ -36,22 +36,6 @@ class UserProfil extends Component
         // $this->savings = Saving::where('id', Auth::user()->id);
     }
 
-    public function dd()
-    {
-        dd('dgfhj');
-        $this->validate([
-            'address' => 'required | string',
-            'objectif' => 'required | string',
-            'amount' => 'required | integer',
-            'group' => 'required | string',
-            'period' => 'required | string',
-            'income' => 'required | string',
-            'number' => 'required | integer',
-            'income_currency' => 'required | string',
-            'amount_currency' => 'required | string',
-        ]);
-    }
-
     public function render()
     {
         return view('livewire.user-profil', [
