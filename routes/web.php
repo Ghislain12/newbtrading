@@ -11,6 +11,7 @@ use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Livewire\ClientOperations;
+use App\Http\Livewire\UserProfil;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,4 +59,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('dashboard', Dashboard::class)->name('users.dashboard');
     Route::get('clients/{id}', ClientOperations::class)->name('clients.operations');
+    Route::get('profil', UserProfil::class)->name('users.profil');
 });
