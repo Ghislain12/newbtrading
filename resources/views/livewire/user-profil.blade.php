@@ -147,9 +147,8 @@
             </div>
         </div>
     </div>
-    <x-deletemodal></x-deletemodal>
 
 </div>
 @livewire('add-loan')
-@livewire('add-investment')
+<x-investment-add :groups="$groups"></x-investment-add>
 <x-saving-add :groups="$groups"></x-saving-add>

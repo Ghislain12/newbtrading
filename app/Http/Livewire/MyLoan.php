@@ -12,7 +12,7 @@ class MyLoan extends Component
 
     public function loanList()
     {
-        return Loan::where('user_id', Auth::user()->id)->get();
+        return Loan::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
     }
 
     public function render()

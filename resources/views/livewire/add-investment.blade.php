@@ -97,5 +97,4 @@
             </div>
         </div>
     </div>
-    <x-deletemodal></x-deletemodal>
 </div>
