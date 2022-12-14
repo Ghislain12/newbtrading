@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('group');
             $table->string('refund_deadline');
             $table->string('income');
-            $table->string('business_plan');
+            $table->string('business_plan')->nullable();
             $table->boolean('statut')->default(false);
             $table->timestamps();
         });
