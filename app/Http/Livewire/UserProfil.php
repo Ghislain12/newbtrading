@@ -28,9 +28,11 @@ class UserProfil extends Component
     public $income_currency;
     public $amount_currency;
 
+    public $deleteId = '';
+
     public function mount()
     {
-        $this->loans = Loan::where('id', Auth::user()->id)->get();
+        $this->loans = Loan::where('user_id', Auth::user()->id)->get();
         $this->investments = Investment::where('id', Auth::user()->id)->get();
         $this->groups = Groups::all();
         // $this->savings = Saving::where('id', Auth::user()->id);
@@ -38,10 +40,22 @@ class UserProfil extends Component
 
     public function render()
     {
+        // dd($this->loans);
         return view('livewire.user-profil', [
             'loans' => $this->loans,
             'investments' => $this->investments,
             'groups' => $this->groups,
         ]);
+    }
+
+    public function deleteId($id)
+    {
+        $this->deleteId = $id;
+    }
+
+    public function remove()
+    {
+        Loan::find($this->deleteId)->delete();
+        session()->flash('success', 'Client supprimé avec succès');
     }
 }

@@ -11,6 +11,17 @@ class Loan extends Model
     use HasFactory, HasUuid;
     protected $guarded = [];
 
+    protected $fillable = [
+        'user_id',
+        'address',
+        'objectif',
+        'amount',
+        'group',
+        'period',
+        'income',
+        'status_id',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

@@ -53,14 +53,17 @@ class AddLoan extends Component
             $loan = new Loan();
             $loan->user_id = Auth::user()->id;
             $loan->address = $this->address;
+            $loan->objectif = $this->objectif;
             $loan->amount = $this->amount . ' ' . $this->amount_currency;
             $loan->group = $this->group;
-            $loan->period = $this->period;
+            $loan->period = $this->number . ' ' . $this->period;
             $loan->income = $this->income . ' ' . $this->income_currency;
             $loan->save();
-            dd('succes');
+            session()->flash('success', 'Demande effectuée avec succès');
+            return redirect()->route('users.profil');
         }
-        return session()->flash('error', 'Délai de remboursement invalide');
+        session()->flash('error', 'Délai de remboursement invalide');
+        return redirect()->route('users.profil');
     }
 
     public function render()

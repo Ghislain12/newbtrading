@@ -74,8 +74,8 @@
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="">Choisissez une devise</option>
                                 <option value="FCFA">FCFA</option>
-                                <option value="£">Euro</option>
-                                <option value="$">dollar</option>
+                                <option value="€">Euro</option>
+                                <option value="$">Dollar</option>
                             </select>
                             @error('amount_currency')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -123,7 +123,6 @@
                             <select wire:model='period'
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="">Choisissez ...</option>
-                                <option value="Jours">Jours</option>
                                 <option value="Mois">Mois</option>
                                 <option value="Année">Année</option>
                             </select>
