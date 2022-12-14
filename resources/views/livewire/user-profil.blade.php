@@ -114,15 +114,14 @@
         <div id="myTabContent">
             <div class="hidden rounded-lg bg-gray-50 dark:bg-gray-800" id="loan" role="tabpanel"
                 aria-labelledby="loan-tab">
-                {{-- @if (count($loans) > 0)
+                @if (count($loans) > 0)
                 <x-user_loan :loans="$loans"></x-user_loan>
                 @else
                 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
                     <strong class="font-medium text-gray-800 dark:text-white">Aucune demande de prêt pour le moment
                     </strong>.
                 </p>
-                @endif --}}
-                @livewire('my-loan')
+                @endif
             </div>
             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="investment" role="tabpanel"
                 aria-labelledby="investment-tab">
@@ -147,9 +146,8 @@
             </div>
         </div>
     </div>
-    <x-deletemodal></x-deletemodal>
 
 </div>
 @livewire('add-loan')
-@livewire('add-investment')
+<x-investment-add :groups="$groups"></x-investment-add>
 <x-saving-add :groups="$groups"></x-saving-add>
