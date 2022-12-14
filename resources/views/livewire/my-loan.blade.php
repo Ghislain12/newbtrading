@@ -74,4 +74,5 @@
             </tbody>
         </table>
     </div>
+    <x-deletemodal></x-deletemodal>
 </div>
