@@ -58,7 +58,6 @@ class AddLoan extends Component
             $loan->group = $this->group;
             $loan->period = $this->number . ' ' . $this->period;
             $loan->income = $this->income . ' ' . $this->income_currency;
-            // dd('tuyioi');
             $loan->save();
             session()->flash('success', 'Demande effectuée avec succès');
             return redirect()->route('users.profil');

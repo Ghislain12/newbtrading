@@ -1,99 +1,136 @@
-<div>
-    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="inline-block min-w-full py-4 sm:px-6 lg:px-8">
-            <div class="">
-                <table class="min-w-full text-center">
-                    <thead class="bg-orange-400 border-b">
-                        <tr>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                Avatar
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                Nom
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                Prénom
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                Email
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                Téléphone
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                Pays
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
-                                Actions
-                            </th>
-                        </tr>
-                    </thead class="border-b">
-                    <tbody>
-                        @if ($clients!==null)
-                        @foreach ($clients as $client)
-                        <tr class="bg-white border-b">
-                            @if ($client->avatar == null)
-                            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"><img
-                                    class="w-8 h-8 mr-2 rounded-full"
-                                    src="{{ 'https://ui-avatars.com/api/?background=ff6347&color=ffff/?uppercase=true&name=' . $client->name. '+' . $client->firstname}}"
-                                    alt="user image" />
-                            </td>
-                            @else
-                            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"><img
-                                    class="w-8 h-8 mr-2 rounded-full" src="{{ asset('image/'.$client->image) }}"
-                                    alt="user image" />
-                            </td>
-                            @endif
-                            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{
-                                $client->name }}</td>
-                            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                {{ $client->firstname }}
-                            </td>
-                            <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                {{ $client->email }}
-                            </td>
-                            <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                {{ $client->phone }}
-                            </td>
-                            <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                {{ $client->country }}
-                            </td>
-                            <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                <div class="flex">
-                                    <a data-bs-toggle="tooltip" title="Supprimer le compte"><svg
-                                            wire:click="deleteId({{ json_encode($client->id)  }})"
-                                            data-modal-toggle="popup-modal" class="w-6 h-6 m-2 cursor-pointer"
-                                            fill="#ff6347" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                            data-bs-toggle="tooltip" data-bs-html="true" title="Supprimer">
-                                            <path fill-rule="evenodd"
-                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                clip-rule="evenodd">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                    <a href="{{ route('clients.operations', $client->id) }}" data-bs-toggle="tooltip"
-                                        title="Détail sur le client"><svg class="w-6 h-6 m-2 cursor-pointer"
-                                            fill="#ff6347" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                            <path fill-rule="evenodd"
-                                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                                                clip-rule="evenodd">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr class="bg-white border-b">
-                        @endforeach
-                        @else
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">Aucun client
-                            </td>
-                        </tr class="bg-white border-b">
-                        @endif
-                    </tbody>
-                </table>
-                <div class="min-w-full text-center">{{ $clients->links() }}</div>
+<div wire:ignore.self id="investment-modal" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+    <div class="relative w-full h-full max-w-md md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button"
+                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                data-modal-toggle="investment-modal">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            </button>
+            <div class="px-6 py-6 lg:px-8">
+                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Demande d'investissement</h3>
+                <form wire:submit.prevent='addLoan' class="space-y-6">
+                    <div class="flex gap-2">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Nom</label>
+                            <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                disabled>
+                        </div>
+                        <div>
+                            <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Prénom(s)</label>
+                            <input type="text" firstname="firstname" id="firstname"
+                                value="{{ Auth::user()->firstname }}"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                disabled>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <div style="width: 60%;">
+                            <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Montant</label>
+                            <input wire:model='amount' type="number" name="amount" id="amount"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                            @error('amount')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div style="width: 38%">
+                            <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Devise</label>
+                            <select wire:model='amount_currency'
+                                class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                <option value="">Choisissez une devise</option>
+                                <option value="FCFA">FCFA</option>
+                                <option value="€">Euro</option>
+                                <option value="$">Dollar</option>
+                            </select>
+                            @error('amount_currency')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <div style="width: 60%;">
+                            <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Revenu</label>
+                            <input wire:model='income' type="number" name="income" id="income"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                            @error('income')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div style="width: 38%">
+                            <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Devise</label>
+                            <select wire:model='income_currency'
+                                class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                <option value="">Choisissez une devise</option>
+                                <option value="FCFA">FCFA</option>
+                                <option value="£">Euro</option>
+                                <option value="$">Dollar</option>
+                            </select>
+                            @error('income_currency')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <div style="width: 60%;">
+                            <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Délai de </label>
+                            <input wire:model='number' type="number" name="income" id="income"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                            @error('number')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div style="width: 38%">
+                            <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                remboursement</label>
+                            <select wire:model='period'
+                                class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                <option value="">Choisissez ...</option>
+                                <option value="month">Mois</option>
+                                <option value="year">Année</option>
+                            </select>
+                            @error('period')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div>
+                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Adresse</label>
+                        <textarea wire:model='address' id="address" rows="1"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                    </div>
+                    @error('address')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                    <div>
+                        <label for="objectif" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Objectif</label>
+                        <textarea wire:model='objectif' id="objectif" rows="1"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                    </div>
+                    @error('objectif')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                    <button type="submit"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Soumettre
+                    </button>
+                </form>
             </div>
         </div>
     </div>
