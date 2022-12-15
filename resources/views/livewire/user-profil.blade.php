@@ -150,5 +150,5 @@
 
 </div>
 @livewire('add-loan')
-<x-investment-add :groups="$groups"></x-investment-add>
+@livewire('add-investment')
 <x-saving-add :groups="$groups"></x-saving-add>
