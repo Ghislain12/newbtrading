@@ -1,11 +1,11 @@
-<div wire:ignore.self id="loan-modal" tabindex="-1" aria-hidden="true"
+<div wire:ignore.self id="edit-loan-modal" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-md md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button type="button"
                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                data-modal-toggle="loan-modal">
+                data-modal-toggle="edit-loan-modal">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -16,11 +16,11 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Demande de prêts</h3>
-                <form wire:submit.prevent='addLoan' class="space-y-6">
+                <form wire:submit.prevent='' class="space-y-6">
                     <div class="flex gap-2">
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Nom</label> 
+                                Nom</label>
                             <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 disabled>
@@ -99,7 +99,7 @@
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="">Choisissez une devise</option>
                                 <option value="FCFA">FCFA</option>
-                                <option value="£">Euro</option>
+                                <option value="€">Euro</option>
                                 <option value="$">Dollar</option>
                             </select>
                             @error('income_currency')
