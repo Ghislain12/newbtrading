@@ -6,10 +6,11 @@ use App\Models\Groups;
 use App\Models\Loan;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 class AddLoan extends Component
 {
-    public $groups;
+    // public $groups;
 
     public $address;
     public $objectif;
@@ -21,10 +22,10 @@ class AddLoan extends Component
     public $income_currency;
     public $amount_currency;
 
-    public function mount()
-    {
-        $this->groups = Groups::all();
-    }
+    // public function mount()
+    // {
+    //     $this->groups = Groups::all();
+    // }
 
     public function checkPeriod(string $period, string $number): bool
     {
@@ -69,7 +70,7 @@ class AddLoan extends Component
     public function render()
     {
         return view('livewire.add-loan', [
-            'groups' => $this->groups
+            'groups' => Groups::all()
         ]);
     }
 }
