@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class MyLoan extends Component
 {
     public $deleteId = '';
-
+    public $loanToUpdate;
     public $address;
     public $objectif;
     public $amount;
@@ -36,7 +36,7 @@ class MyLoan extends Component
 
     public function editLoan(Loan $loan)
     {
-        $amount_currency = explode(" ", $loan->income);
+        $this->loanToUpdate = $loan;
         $this->address = $loan->address;
         $this->objectif = $loan->objectif;
         $this->amount = explode(" ", $loan->amount)[0];
@@ -46,6 +46,19 @@ class MyLoan extends Component
         $this->group = $loan->group;
         $this->income_currency = explode(" ", $loan->income)[1];
         $this->amount_currency = explode(" ", $loan->amount)[1];
+    }
+
+    public function update()
+    {
+        $loan = $this->loanToUpdate;
+        $loan->address = $this->address;
+        $loan->objectif = $this->objectif;
+        $loan->amount = $this->amount . ' ' . $this->amount_currency;
+        $loan->group = $this->group;
+        $loan->period = $this->number . ' ' . $this->period;
+        $loan->income = $this->income . ' ' . $this->income_currency;
+        $loan->save();
+        return redirect()->route('users.profil');
     }
 
     public function deleteId($id)

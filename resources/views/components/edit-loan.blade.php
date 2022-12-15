@@ -16,7 +16,7 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Demande de prêts</h3>
-                <form wire:submit.prevent='' class="space-y-6">
+                <form wire:submit.prevent='update' class="space-y-6">
                     <div class="flex gap-2">
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
