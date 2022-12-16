@@ -40,7 +40,7 @@ class Clients extends Component
         $this->deleteId = $id;
     }
 
-    public function removeClient()
+    public function performAction()
     {
         User::find($this->deleteId)->delete();
         session()->flash('success', 'Client supprimé avec succès');

@@ -45,7 +45,7 @@
                         $item->income }}</td>
                     <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
                         $item->address }}</td>
-                    @if ($item->status == false)
+                    @if ($item->statut == false)
                     <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap"><span
                             class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">En
                             cours</span></td>

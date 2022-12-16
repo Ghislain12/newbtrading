@@ -6,6 +6,9 @@
                     <thead class="bg-orange-400 border-b">
                         <tr>
                             <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
+                                Date
+                            </th>
+                            <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
                                 Demandeur
                             </th>
                             <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
@@ -31,6 +34,8 @@
                     <tbody>
                         @foreach ($loans as $item)
                         <tr class="bg-white border-b">
+                            <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
+                                $item->created_at->diffForHumans() }}</td>
                             <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{
                                 $item->user->name }} {{
                                 $item->user->firstname }}</td>
@@ -46,17 +51,18 @@
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                 {{ $item->income }}
                             </td>
-                            @if ($item->status == false)
+                            @if ($item->statut == false)
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap"><span
                                     class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">En
                                     cours</span></td>
-                            @else
+                            @endif
+                            @if ($item->statut == true)
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap"><span
                                     class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Validé</span>
                             </td>
                             @endif
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                <div class="flex">
+                                <div class="flex items-center ">
                                     <a data-bs-toggle="tooltip" title="Supprimer le compte"><svg
                                             wire:click="deleteId({{ json_encode($item->id)  }})"
                                             data-modal-toggle="popup-modal" class="w-6 h-6 m-2 cursor-pointer"
@@ -78,6 +84,16 @@
                                             </path>
                                         </svg>
                                     </a>
+                                    <a data-bs-toggle="tooltip" title="Valider la demande">
+                                        <svg wire:click="editId({{ json_encode($item->id)  }})"
+                                            class="w-6 h-6 m-2 cursor-pointer" fill="#ff6347" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd">
+                                            </path>
+                                        </svg>
+                                    </a>
                                 </div>
                             </td>
                         </tr class="bg-white border-b">
@@ -88,5 +104,5 @@
             </div>
         </div>
     </div>
-    <x-deletemodal></x-deletemodal>
 </div>
+<x-deletemodal></x-deletemodal>

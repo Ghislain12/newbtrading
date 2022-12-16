@@ -34,8 +34,18 @@ class MyLoan extends Component
         ]);
     }
 
+    public function checkPeriod(string $period, string $number): bool
+    {
+        if (($period == 'year' && $number <= 20) || ($period == 'month' && $number <= 240)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function editLoan(Loan $loan)
     {
+
         $this->loanToUpdate = $loan;
         $this->address = $loan->address;
         $this->objectif = $loan->objectif;
@@ -50,14 +60,19 @@ class MyLoan extends Component
 
     public function update()
     {
-        $loan = $this->loanToUpdate;
-        $loan->address = $this->address;
-        $loan->objectif = $this->objectif;
-        $loan->amount = $this->amount . ' ' . $this->amount_currency;
-        $loan->group = $this->group;
-        $loan->period = $this->number . ' ' . $this->period;
-        $loan->income = $this->income . ' ' . $this->income_currency;
-        $loan->save();
+        if (checkPeriod($this->period, $this->number)) {
+            $loan = $this->loanToUpdate;
+            $loan->address = $this->address;
+            $loan->objectif = $this->objectif;
+            $loan->amount = $this->amount . ' ' . $this->amount_currency;
+            $loan->group = $this->group;
+            $loan->period = $this->number . ' ' . $this->period;
+            $loan->income = $this->income . ' ' . $this->income_currency;
+            $loan->save();
+            session()->flash('success', 'Demande modifiée avec succès');
+            return redirect()->route('users.profil');
+        }
+        session()->flash('error', 'Délai de remboursement invalide');
         return redirect()->route('users.profil');
     }
 
