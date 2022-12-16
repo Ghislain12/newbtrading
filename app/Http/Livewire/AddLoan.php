@@ -9,7 +9,6 @@ use Livewire\Component;
 
 class AddLoan extends Component
 {
-    public $groups;
 
     public $address;
     public $objectif;
@@ -21,10 +20,10 @@ class AddLoan extends Component
     public $income_currency;
     public $amount_currency;
 
-    public function mount()
-    {
-        $this->groups = Groups::all();
-    }
+    // public function mount()
+    // {
+    //     $this->groups = Groups::all();
+    // }
 
     public function checkPeriod(string $period, string $number): bool
     {
@@ -58,7 +57,6 @@ class AddLoan extends Component
             $loan->group = $this->group;
             $loan->period = $this->number . ' ' . $this->period;
             $loan->income = $this->income . ' ' . $this->income_currency;
-            // dd('tuyioi');
             $loan->save();
             session()->flash('success', 'Demande effectuée avec succès');
             return redirect()->route('users.profil');
@@ -70,7 +68,7 @@ class AddLoan extends Component
     public function render()
     {
         return view('livewire.add-loan', [
-            'groups' => $this->groups
+            'groups' => Groups::all()
         ]);
     }
 }

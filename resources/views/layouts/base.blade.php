@@ -19,6 +19,7 @@
     <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
@@ -32,26 +33,23 @@
 </head>
 
 <x-header></x-header>
-{{--
 
-<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
-    --}}
+<body>
+    <x-alert></x-alert>
 
-    <body>
-        <x-alert></x-alert>
+    @yield('body')
+    @livewire('livewire-ui-modal')
+</body>
+<x-footer></x-footer>
 
-        @yield('body')
-    </body>
-    <x-footer></x-footer>
-
-    <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
-    <script type="text/javascript">
-        var tooltipTriggerList = [].slice.call(
+<script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
       );
       var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new Tooltip(tooltipTriggerEl);
       });
-    </script>
+</script>
 
 </html>
