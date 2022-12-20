@@ -1,14 +1,18 @@
 @section('title', 'Mon profil')
 <div class="flex flex-col min-h-screen py-12 sm:px-6 lg:px-8">
     <div class="mt-5 text-center ">
-        @if (Auth::user()->avatar == null)
+        @if (Auth::user()->image == null)
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . Auth::user()->name. '+' . Auth::user()->firstname}}"
-            class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
+            class="w-32 mx-auto mb-4 rounded-full cursor-pointer" data-modal-toggle="edit-avatar-modal" alt="Avatar" />
+        <span
+            class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
         @else
-        <img src="{{ asset('image/'.Auth::user()->image) }}" class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
+        <img src="{{ asset('storage/images/'.Auth::user()->image) }}"
+            class="w-32 h-32 mx-auto mb-4 rounded-full cursor-pointer" data-modal-toggle="edit-avatar-modal" alt="Avatar" />
         @endif
-        <h5 class="mb-2 text-xl font-medium leading-tight uppercase">{{ Auth::user()->name }} {{ Auth::user()->firstname
-            }}</h5>
+        <h5 class="mb-2 text-xl font-medium leading-tight uppercase">{{ Auth::user()->name }} {{
+            Auth::user()->firstname }}
+        </h5>
     </div>
     <div class="flex flex-row flex-wrap content-center justify-between w-full h-24 p-4 bg-slate-400">
         <div>
@@ -49,9 +53,20 @@
                 Auth::user()->country }}</span>
         </div>
     </div>
-    <div class="flex pl-2 mt-5 space-x-2">
+    <div class="flex flex-wrap pl-2 mt-5 space-x-2">
+        <button type="button" data-modal-toggle="edit-profil-modal"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-2">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path>
+                <path fill-rule="evenodd"
+                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                    clip-rule="evenodd">
+                </path>
+            </svg>
+            Profil
+        </button>
         <button type="button" data-modal-toggle="loan-modal"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-2">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
@@ -61,7 +76,7 @@
             Prêts
         </button>
         <button type="button" data-modal-toggle="investment-modal"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-2">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
@@ -71,7 +86,7 @@
             Investment
         </button>
         <button type="button" data-modal-toggle="saving-modal"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-2">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
@@ -118,14 +133,7 @@
             </div>
             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="investment" role="tabpanel"
                 aria-labelledby="investment-tab">
-                @if (count($investments) > 0)
-                <x-user_investment :investments="$investments"></x-user_investment>
-                @else
-                <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
-                    <strong class="font-medium text-gray-800 dark:text-white">Aucune demande d'investissement
-                    </strong>.
-                </p>
-                @endif
+                @livewire('my-investments')
             </div>
             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="saving" role="tabpanel"
                 aria-labelledby="saving-tab">
@@ -143,3 +151,5 @@
 @livewire('add-loan')
 @livewire('add-investment')
 @livewire('add-saving')
+@livewire('edit-profil')
+@livewire('change-avatar')

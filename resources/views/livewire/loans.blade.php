@@ -63,6 +63,7 @@
                             @endif
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                 <div class="flex items-center ">
+                                    @if ($item->statut == false)
                                     <a data-bs-toggle="tooltip" title="Supprimer le compte"><svg
                                             wire:click="deleteId({{ json_encode($item->id)  }})"
                                             data-modal-toggle="popup-modal" class="w-6 h-6 m-2 cursor-pointer"
@@ -74,6 +75,7 @@
                                             </path>
                                         </svg>
                                     </a>
+                                    @endif
                                     <a href="#" data-bs-toggle="tooltip" title="Détail sur le item"><svg
                                             class="w-6 h-6 m-2 cursor-pointer" fill="#ff6347" viewBox="0 0 20 20"
                                             xmlns="http://www.w3.org/2000/svg">

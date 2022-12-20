@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Loan;
-use Illuminate\Http\RedirectResponse;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
@@ -17,7 +16,7 @@ class Loans extends Component
     public function render(): View
     {
         return view('livewire.loans', [
-            'loans' => Loan::paginate(15)
+            'loans' => Loan::orderBy('created_at', 'DESC')->paginate(15)
         ]);
     }
 
@@ -27,11 +26,14 @@ class Loans extends Component
         $this->performAction();
     }
 
+    public function deleteId(Loan $loan)
+    {
+    }
+
     public function performAction(): void
     {
         if (isValidatedLoan($this->loan)) {
             session()->flash('error', 'Demande déjà validée');
-            // return back();
         }
         $this->loan->statut = true;
         $this->loan->save();

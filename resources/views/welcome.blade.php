@@ -1,92 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
-    <div class="absolute top-0 right-0 mt-4 mr-4">
-        @if (Route::has('login'))
-        <div class="space-x-4">
-            @auth
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                Log out
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-            @else
-            <a href="{{ route('login') }}"
-                class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Log
-                in</a>
-
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}"
-                class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
-    </div>
-
-    <div class="flex items-center justify-center">
-        <div class="flex flex-col justify-around">
-            <div class="space-y-6">
-                <a href="{{ route('home') }}">
-                    <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
-                </a>
-
-                <h1 class="text-5xl font-extrabold tracking-wider text-center text-gray-600">
-                    {{ config('app.name') }}
-                </h1>
-
-                <ul class="list-reset">
-                    <li class="inline px-4">
-                        <a href="https://tailwindcss.com"
-                            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Tailwind
-                            CSS</a>
-                    </li>
-                    <li class="inline px-4">
-                        <a href="https://github.com/alpinejs/alpine"
-                            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Alpine.js</a>
-                    </li>
-                    <li class="inline px-4">
-                        <a href="https://laravel.com"
-                            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Laravel</a>
-                    </li>
-                    <li class="inline px-4">
-                        <a href="https://laravel-livewire.com"
-                            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Livewire</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 
 <!--Hero-->
-<div class="pt-24 leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;"">
-    <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <!--Left Col-->
-        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-            <p class="uppercase tracking-loose w-full">Plus simple, plus rapide et plus sûr...</p>
-            <h1 class="my-4 text-5xl font-bold leading-tight">
-                Bienvenue à POWER RUMING FINANCE
-            </h1>
-            <p class="leading-normal text-2xl mb-8">
-                Sub-hero message, not too long and not too short. Make it just right!
-            </p>
-            <button
-                class="mx-auto lg:mx-0  bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Subscribe
-            </button>
-        </div>
-        <!--Right Col-->
-        <div class="w-full md:w-3/5 py-6 text-center">
-            <img class="w-full md:w-4/5 z-50" src="{{ asset('images/hero.png') }}" />
-        </div>
+<div class="pt-24 leading-normal tracking-normal text-white gradient"
+    style="font-family: 'Source Sans Pro', sans-serif;"">
+    <div class="container flex flex-col flex-wrap items-center px-3 mx-auto  md:flex-row">
+    <!--Left Col-->
+    <div class="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left">
+        <p class="w-full uppercase tracking-loose">Plus simple, plus rapide et plus sûr...</p>
+        <h1 class="my-4 text-5xl font-bold leading-tight">
+            Bienvenue à POWER RUMING FINANCE
+        </h1>
+        <p class="mb-8 text-2xl leading-normal">
+            Sub-hero message, not too long and not too short. Make it just right!
+        </p>
+        <button
+            class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 focus:outline-none focus:shadow-outline hover:scale-105">
+            Subscribe
+        </button>
     </div>
+    <!--Right Col-->
+    <div class="w-full py-6 text-center md:w-3/5">
+        <img class="z-50 w-full md:w-4/5" src="{{ asset('images/hero.png') }}" />
+    </div>
+</div>
 </div>
 <div class="relative -mt-12 lg:-mt-24">
     <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -111,20 +49,20 @@
         </g>
     </svg>
 </div>
-<section class="bg-white border-b py-8">
-    <div class="container max-w-5xl mx-auto m-8">
+<section class="py-8 bg-white border-b">
+    <div class="container max-w-5xl m-8 mx-auto">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
             Particularités
         </h2>
         <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
         </div>
         <div class="flex flex-wrap">
-            <div class="w-5/6 sm:w-1/2 p-6">
-                <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+            <div class="w-5/6 p-6 sm:w-1/2">
+                <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
                     Efficacité
                 </h3>
-                <p class="text-gray-600 mb-8">
+                <p class="mb-8 text-gray-600">
                     Au cours des 10 dernières années nous avons aidé des millions de personnes à prendre le contrôle de
                     leur dette, à concrétiser ou à faire croître leur entreprise et à inventer leur avenir.
                     <br />
@@ -133,8 +71,8 @@
                     <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
                 </p>
             </div>
-            <div class="w-full sm:w-1/2 p-6">
-                <svg class="w-full sm:h-64 mx-auto" viewBox="0 0 1177 598.5" xmlns="http://www.w3.org/2000/svg">
+            <div class="w-full p-6 sm:w-1/2">
+                <svg class="w-full mx-auto sm:h-64" viewBox="0 0 1177 598.5" xmlns="http://www.w3.org/2000/svg">
                     <title>travel booking</title>
                     <path transform="translate(-11.5 -150.75)"
                         d="M274.63,501l-6.29-3.91c-.6-.37-1.19-.77-1.79-1.15a59.86,59.86,0,0,0,6.05-116.62l.31,24.66-13.55-26.83h-.17a59.87,59.87,0,0,0-62.58,57c-.06,1.15,0,2.27,0,3.4-4.71-5.38-9-11.15-11.83-17.47-5.73-12.79-5.84-27.28-5.39-44.9.9-34.9,2.41-70.08,4.37-105.14a59.85,59.85,0,0,0,53.16-56.64c.08-1.83,0-3.63,0-5.43,0-.45,0-.89-.07-1.34-.12-1.74-.28-3.46-.55-5.16,0-.28-.1-.55-.15-.82-.24-1.44-.54-2.86-.88-4.26-.13-.53-.26-1-.4-1.57-.42-1.53-.88-3-1.42-4.52-.18-.49-.39-1-.58-1.46-.42-1.09-.88-2.17-1.37-3.23-.26-.56-.51-1.12-.78-1.67-.08-.14-.13-.29-.21-.43l0,0a59.84,59.84,0,0,0-70.28-30.36l.4,32.1-13.4-26.52a59.57,59.57,0,0,0-28.55,64.51h-.06c.09.43.22.84.32,1.26.19.79.39,1.57.61,2.35.28,1,.6,2,.93,3,.25.74.49,1.47.77,2.2.41,1.06.87,2.09,1.33,3.12.27.6.51,1.22.8,1.81q1.14,2.33,2.48,4.53c.31.52.66,1,1,1.51.64,1,1.28,2,2,2.93.43.59.89,1.16,1.34,1.73.66.83,1.33,1.65,2,2.44.49.57,1,1.12,1.51,1.66.74.78,1.49,1.53,2.27,2.26.52.49,1,1,1.57,1.46.88.79,1.8,1.53,2.73,2.26.47.37.93.75,1.41,1.11,1.42,1,2.88,2,4.39,3,.28.17.59.31.87.48,1.27.74,2.55,1.45,3.87,2.09.57.28,1.15.53,1.73.79,1.08.48,2.17.95,3.29,1.38l2,.7c1.1.37,2.22.72,3.35,1,.66.18,1.33.37,2,.53,1.22.29,2.47.53,3.73.75l.24.05q-1.23,22.19-2.2,44.39a59.83,59.83,0,0,0-83.07-26l10.58,29-21.77-20.9a59.66,59.66,0,0,0-19.34,41.34A58.5,58.5,0,0,0,52.8,354a59.84,59.84,0,0,0,110.06,16.3c0,1.5-.1,3-.14,4.51-.4,15.54-.9,34.88,6.85,52.15,5.25,11.7,13.69,21.21,22,29.73,5.43,5.54,11.06,10.91,16.83,16.1a60.09,60.09,0,0,0,21.62,18c9.48,7.3,19.3,14.17,29.45,20.51l6.34,3.94c5.7,3.53,11.54,7.16,17.26,10.93-1-.1-2-.21-3-.26a59.89,59.89,0,0,0-58.94,39l37.4,30.43-41.14-9.54a59.89,59.89,0,0,0,85.82,53.92l-2.78,3.45q-2.76,3.43-5.45,6.82c-24.34,30.83-31.11,60.09-19.06,82.4l14.66-7.91c-11.73-21.72,5.91-49.52,17.47-64.16q2.64-3.33,5.36-6.7c15.55-19.32,33.17-41.22,32.74-68.08C345.52,545,306.21,520.6,274.63,501Z"
@@ -258,9 +196,9 @@
                 </svg>
             </div>
         </div>
-        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
-            <div class="w-full sm:w-1/2 p-6 mt-6">
-                <svg class="w-5/6 sm:h-64 mx-auto" viewBox="0 0 1176.60617 873.97852"
+        <div class="flex flex-col-reverse flex-wrap sm:flex-row">
+            <div class="w-full p-6 mt-6 sm:w-1/2">
+                <svg class="w-5/6 mx-auto sm:h-64" viewBox="0 0 1176.60617 873.97852"
                     xmlns="http://www.w3.org/2000/svg">
                     <title>connected world</title>
                     <path transform="translate(-11.697 -13.011)"
@@ -351,12 +289,12 @@
                     <circle cx="600.35" cy="480.68" r="11.968" fill="#ff6347" />
                 </svg>
             </div>
-            <div class="w-full sm:w-1/2 p-6 mt-6">
+            <div class="w-full p-6 mt-6 sm:w-1/2">
                 <div class="align-middle">
-                    <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+                    <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
                         Accessible
                     </h3>
-                    <p class="text-gray-600 mb-8">
+                    <p class="mb-8 text-gray-600">
                         POWER RUMING FINANCE vous offre la possibilité d’accéder, de façon fiable et très sécurisée, au
                         prêt en ligne sans vous déplacer.
                         <br />
@@ -369,11 +307,11 @@
             </div>
         </div>
         <div class="flex flex-wrap">
-            <div class="w-5/6 sm:w-1/2 p-6">
-                <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+            <div class="w-5/6 p-6 sm:w-1/2">
+                <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
                     Rapide
                 </h3>
-                <p class="text-gray-600 mb-8">
+                <p class="mb-8 text-gray-600">
                     Nous avons mis en place l’une des technologies les plus innovantes du secteur financier en ligne et
                     nous disposons d’un cadre juridique avéré nous permettant de traiter vos demandes avec efficacité et
                     en un temps express.
@@ -383,8 +321,8 @@
                     <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
                 </p>
             </div>
-            <div class="w-full sm:w-1/2 p-6">
-                <svg class="w-full sm:h-64 mx-auto" viewBox="0 0 1177 598.5" xmlns="http://www.w3.org/2000/svg">
+            <div class="w-full p-6 sm:w-1/2">
+                <svg class="w-full mx-auto sm:h-64" viewBox="0 0 1177 598.5" xmlns="http://www.w3.org/2000/svg">
                     <title>travel booking</title>
                     <path transform="translate(-11.5 -150.75)"
                         d="M274.63,501l-6.29-3.91c-.6-.37-1.19-.77-1.79-1.15a59.86,59.86,0,0,0,6.05-116.62l.31,24.66-13.55-26.83h-.17a59.87,59.87,0,0,0-62.58,57c-.06,1.15,0,2.27,0,3.4-4.71-5.38-9-11.15-11.83-17.47-5.73-12.79-5.84-27.28-5.39-44.9.9-34.9,2.41-70.08,4.37-105.14a59.85,59.85,0,0,0,53.16-56.64c.08-1.83,0-3.63,0-5.43,0-.45,0-.89-.07-1.34-.12-1.74-.28-3.46-.55-5.16,0-.28-.1-.55-.15-.82-.24-1.44-.54-2.86-.88-4.26-.13-.53-.26-1-.4-1.57-.42-1.53-.88-3-1.42-4.52-.18-.49-.39-1-.58-1.46-.42-1.09-.88-2.17-1.37-3.23-.26-.56-.51-1.12-.78-1.67-.08-.14-.13-.29-.21-.43l0,0a59.84,59.84,0,0,0-70.28-30.36l.4,32.1-13.4-26.52a59.57,59.57,0,0,0-28.55,64.51h-.06c.09.43.22.84.32,1.26.19.79.39,1.57.61,2.35.28,1,.6,2,.93,3,.25.74.49,1.47.77,2.2.41,1.06.87,2.09,1.33,3.12.27.6.51,1.22.8,1.81q1.14,2.33,2.48,4.53c.31.52.66,1,1,1.51.64,1,1.28,2,2,2.93.43.59.89,1.16,1.34,1.73.66.83,1.33,1.65,2,2.44.49.57,1,1.12,1.51,1.66.74.78,1.49,1.53,2.27,2.26.52.49,1,1,1.57,1.46.88.79,1.8,1.53,2.73,2.26.47.37.93.75,1.41,1.11,1.42,1,2.88,2,4.39,3,.28.17.59.31.87.48,1.27.74,2.55,1.45,3.87,2.09.57.28,1.15.53,1.73.79,1.08.48,2.17.95,3.29,1.38l2,.7c1.1.37,2.22.72,3.35,1,.66.18,1.33.37,2,.53,1.22.29,2.47.53,3.73.75l.24.05q-1.23,22.19-2.2,44.39a59.83,59.83,0,0,0-83.07-26l10.58,29-21.77-20.9a59.66,59.66,0,0,0-19.34,41.34A58.5,58.5,0,0,0,52.8,354a59.84,59.84,0,0,0,110.06,16.3c0,1.5-.1,3-.14,4.51-.4,15.54-.9,34.88,6.85,52.15,5.25,11.7,13.69,21.21,22,29.73,5.43,5.54,11.06,10.91,16.83,16.1a60.09,60.09,0,0,0,21.62,18c9.48,7.3,19.3,14.17,29.45,20.51l6.34,3.94c5.7,3.53,11.54,7.16,17.26,10.93-1-.1-2-.21-3-.26a59.89,59.89,0,0,0-58.94,39l37.4,30.43-41.14-9.54a59.89,59.89,0,0,0,85.82,53.92l-2.78,3.45q-2.76,3.43-5.45,6.82c-24.34,30.83-31.11,60.09-19.06,82.4l14.66-7.91c-11.73-21.72,5.91-49.52,17.47-64.16q2.64-3.33,5.36-6.7c15.55-19.32,33.17-41.22,32.74-68.08C345.52,545,306.21,520.6,274.63,501Z"
@@ -510,81 +448,81 @@
         </div>
     </div>
 </section>
-<section class="bg-white border-b py-8">
-    <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+<section class="py-8 bg-white border-b">
+    <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
             Services
         </h2>
         <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
         </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
+            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                    <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
                         xGETTING STARTED
                     </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
+                    <div class="w-full px-6 text-xl font-bold text-gray-800">
                         Lorem ipsum dolor sit amet.
                     </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
+                    <p class="px-6 mb-5 text-base text-gray-800">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                         posuere et sit amet ligula.
                     </p>
                 </a>
             </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
                 <div class="flex items-center justify-start">
                     <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                         Action
                     </button>
                 </div>
             </div>
         </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
+            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                    <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
                         xGETTING STARTED
                     </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
+                    <div class="w-full px-6 text-xl font-bold text-gray-800">
                         Lorem ipsum dolor sit amet.
                     </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
+                    <p class="px-6 mb-5 text-base text-gray-800">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                         posuere et sit amet ligula.
                     </p>
                 </a>
             </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
                 <div class="flex items-center justify-center">
                     <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                         Action
                     </button>
                 </div>
             </div>
         </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
+            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                    <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                    <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
                         xGETTING STARTED
                     </p>
-                    <div class="w-full font-bold text-xl text-gray-800 px-6">
+                    <div class="w-full px-6 text-xl font-bold text-gray-800">
                         Lorem ipsum dolor sit amet.
                     </div>
-                    <p class="text-gray-800 text-base px-6 mb-5">
+                    <p class="px-6 mb-5 text-base text-gray-800">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                         posuere et sit amet ligula.
                     </p>
                 </a>
             </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
                 <div class="flex items-center justify-end">
                     <button
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                         Action
                     </button>
                 </div>
@@ -592,82 +530,82 @@
         </div>
     </div>
 </section>
-<section class="bg-gray-100 py-8">
-    <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
+<section class="py-8 bg-gray-100">
+    <div class="container px-2 pt-4 pb-12 mx-auto text-gray-800">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
             Pricing
         </h2>
         <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
         </div>
-        <div class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4">
-            <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
-                <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
+        <div class="flex flex-col justify-center pt-12 my-12 sm:flex-row sm:my-4">
+            <div class="flex flex-col w-5/6 mx-auto mt-4 bg-white rounded-none lg:w-1/4 lg:mx-0 lg:rounded-l-lg">
+                <div class="flex-1 overflow-hidden text-gray-600 bg-white rounded-t rounded-b-none shadow">
                     <div class="p-8 text-3xl font-bold text-center border-b-4">
                         Free
                     </div>
-                    <ul class="w-full text-center text-sm">
-                        <li class="border-b py-4">Thing</li>
-                        <li class="border-b py-4">Thing</li>
-                        <li class="border-b py-4">Thing</li>
+                    <ul class="w-full text-sm text-center">
+                        <li class="py-4 border-b">Thing</li>
+                        <li class="py-4 border-b">Thing</li>
+                        <li class="py-4 border-b">Thing</li>
                     </ul>
                 </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
+                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
+                    <div class="w-full pt-6 text-3xl font-bold text-center text-gray-600">
                         £0
                         <span class="text-base">for one user</span>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                            class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                             Sign Up
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col w-5/6 lg:w-1/3 mx-auto lg:mx-0 rounded-lg bg-white mt-4 sm:-mt-6 shadow-lg z-10">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+            <div class="z-10 flex flex-col w-5/6 mx-auto mt-4 bg-white rounded-lg shadow-lg lg:w-1/3 lg:mx-0 sm:-mt-6">
+                <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
                     <div class="w-full p-8 text-3xl font-bold text-center">Basic</div>
-                    <div class="h-1 w-full gradient my-0 py-0 rounded-t"></div>
-                    <ul class="w-full text-center text-base font-bold">
-                        <li class="border-b py-4">Thing</li>
-                        <li class="border-b py-4">Thing</li>
-                        <li class="border-b py-4">Thing</li>
-                        <li class="border-b py-4">Thing</li>
+                    <div class="w-full h-1 py-0 my-0 rounded-t gradient"></div>
+                    <ul class="w-full text-base font-bold text-center">
+                        <li class="py-4 border-b">Thing</li>
+                        <li class="py-4 border-b">Thing</li>
+                        <li class="py-4 border-b">Thing</li>
+                        <li class="py-4 border-b">Thing</li>
                     </ul>
                 </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
                     <div class="w-full pt-6 text-4xl font-bold text-center">
                         £x.99
                         <span class="text-base">/ per user</span>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                            class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                             Sign Up
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
-                <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
+            <div class="flex flex-col w-5/6 mx-auto mt-4 bg-white rounded-none lg:w-1/4 lg:mx-0 lg:rounded-l-lg">
+                <div class="flex-1 overflow-hidden text-gray-600 bg-white rounded-t rounded-b-none shadow">
                     <div class="p-8 text-3xl font-bold text-center border-b-4">
                         Pro
                     </div>
-                    <ul class="w-full text-center text-sm">
-                        <li class="border-b py-4">Thing</li>
-                        <li class="border-b py-4">Thing</li>
-                        <li class="border-b py-4">Thing</li>
+                    <ul class="w-full text-sm text-center">
+                        <li class="py-4 border-b">Thing</li>
+                        <li class="py-4 border-b">Thing</li>
+                        <li class="py-4 border-b">Thing</li>
                     </ul>
                 </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
+                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
+                    <div class="w-full pt-6 text-3xl font-bold text-center text-gray-600">
                         £x.99
                         <span class="text-base">/ per user</span>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                            class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                             Sign Up
                         </button>
                     </div>
@@ -702,18 +640,18 @@
         </g>
     </g>
 </svg>
-<section class="container mx-auto text-center py-6 mb-12">
+<section class="container py-6 mx-auto mb-12 text-center">
     <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
         Call to Action
     </h2>
     <div class="w-full mb-4">
-        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+        <div class="w-1/6 h-1 py-0 mx-auto my-0 bg-white rounded-t opacity-25"></div>
     </div>
     <h3 class="my-4 text-3xl leading-tight">
         Main Hero Message to sell yourself!
     </h3>
     <button
-        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow-lg lg:mx-0 hover:underline focus:outline-none focus:shadow-outline hover:scale-105">
         Action!
     </button>
 </section>

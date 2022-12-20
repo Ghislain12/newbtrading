@@ -1,4 +1,4 @@
-@if (count($loans) > 0)
+@if (count($investments) > 0)
 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="inline-block min-w-full py-4 sm:px-6 lg:px-8">
         <table class="min-w-full text-center">
@@ -31,7 +31,7 @@
                 </tr>
             </thead class="border-b">
             <tbody>
-                @foreach ($loans as $item)
+                @foreach ($investments as $item)
                 <tr>
                     <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
                         $item->created_at->diffForHumans() }}</td>
@@ -41,7 +41,7 @@
                     <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
                         $item->amount }}</td>
                     <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
-                        $item->period }}</td>
+                        $item->refund_deadline }}</td>
                     <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">{{
                         $item->income }}</td>
                     <td class="px-6 py-4 text-sm font-light text-gray-900 w-60 whitespace-nowrap"
@@ -91,7 +91,7 @@
 </div>
 @else
 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
-    <strong class="font-medium text-gray-800 dark:text-white">Aucune demande de prêts
+    <strong class="font-medium text-gray-800 dark:text-white">Aucune demande d'investissement
     </strong>
 </p>
 @endif

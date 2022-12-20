@@ -81,12 +81,14 @@ class MyLoan extends Component
         $this->deleteId = $id;
     }
 
-    public function removeClient()
+    public function performAction()
     {
-        if (Loan::find($this->deleteId)->status == true) {
+
+        if (isValidatedLoan(Loan::find($this->deleteId))) {
             session()->flash('error', 'Demande en cours de traitement');
+        } else {
+            Loan::find($this->deleteId)->delete();
+            session()->flash('success', 'Client supprimé avec succès');
         }
-        Loan::find($this->deleteId)->delete();
-        session()->flash('success', 'Client supprimé avec succès');
     }
 }

@@ -35,12 +35,10 @@ class UserProfil extends Component
         $this->loans = Loan::where('user_id', Auth::user()->id)->get();
         $this->investments = Investment::where('id', Auth::user()->id)->get();
         $this->groups = Groups::all();
-        // $this->savings = Saving::where('id', Auth::user()->id);
     }
 
     public function render()
     {
-        // dd($this->loans);
         return view('livewire.user-profil', [
             'loans' => $this->loans,
             'investments' => $this->investments,
