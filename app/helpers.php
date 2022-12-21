@@ -1,6 +1,8 @@
 <?php
+namespace App\me\salanon\PROJETS\OWN\newbtrading\app;
 
 use App\Models\Loan;
+use App\Models\Investment;
 
 function isOjectNull(object $object): bool
 {
@@ -25,3 +27,4 @@ function isValidatedLoan(Loan $loan): bool
 {
     return ($loan->statut == true) ? true : false;
 }
+

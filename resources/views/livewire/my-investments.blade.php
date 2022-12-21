@@ -70,8 +70,8 @@
                                 </svg>
                             </a>
                             <a data-bs-toggle="tooltip" title="Modifier ma demande">
-                                <svg data-modal-toggle="edit-loan-modal"
-                                    wire:click='editLoan({{ json_encode($item->id)  }})'
+                                <svg data-modal-toggle="edit-investment-modal"
+                                    wire:click='editInvestment({{ json_encode($item->id)  }})'
                                     class="w-6 h-6 m-2 cursor-pointer" fill="#ff6347" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -87,7 +87,7 @@
         </table>
     </div>
     <x-deletemodal></x-deletemodal>
-    <x-edit-loan :groups='$groups'></x-edit-loan>
+    <x-edit-investment :groups='$groups'></x-edit-investment>
 </div>
 @else
 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">

@@ -151,8 +151,5 @@
 @livewire('add-loan')
 @livewire('add-investment')
 @livewire('add-saving')
-<<<<<<< HEAD
-=======
 @livewire('edit-profil')
 @livewire('change-avatar')
->>>>>>> 0f07de36e2e14cb4adae7a4e863afd4521fe089f

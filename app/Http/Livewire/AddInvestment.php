@@ -38,7 +38,7 @@ class AddInvestment extends Component
     }
 
 
-    public function checkPeriod(string $refund_deadline, string $number): bool
+    public function checkPeriod(int $refund_deadline, string $number): bool
     {
         
         if (
@@ -66,7 +66,7 @@ class AddInvestment extends Component
             'amount_currency' => 'required | string',
         ]);
         if ($this->checkPeriod ($this->refund_deadline, $this->number) ) {
-           
+            if($this->business_plan != null){
             $investment = new Investment();
             $investment->user_id = Auth::user()->id;
             $investment->address = $this->address;
@@ -77,8 +77,22 @@ class AddInvestment extends Component
             $investment->income = $this->income . ' ' . $this->income_currency;
             $investment->business_plan = $this->business_plan->store('/', 'documents');
             $investment->save();
-            return session()->flash('success', 'Investment save successfully');
+            session()->flash('success', 'Demande effectuée avec succès');
+            return redirect()->route('users.profil');
+            }
+            $investment = new Investment();
+            $investment->user_id = Auth::user()->id;
+            $investment->address = $this->address;
+            $investment->objectif = $this->objectif;
+            $investment->amount = $this->amount . ' ' . $this->amount_currency;
+            $investment->group = $this->group;
+            $investment->refund_deadline = $this->refund_deadline .' ' . $this->number;
+            $investment->income = $this->income . ' ' . $this->income_currency;
+            $investment->save();
+            session()->flash('success', 'Demande effectuée avec succès');
+            return redirect()->route('users.profil');
         }
-        return session()->flash('error', 'Délai de remboursement invalide');
+        session()->flash('error', 'Délai de remboursement invalide');
+        return redirect()->route('users.profil');
     }
 }

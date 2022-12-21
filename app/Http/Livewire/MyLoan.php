@@ -76,6 +76,11 @@ class MyLoan extends Component
         return redirect()->route('users.profil');
     }
 
+    function isValidatedLoan1(Loan $loan): bool
+    {
+        return ($loan->statut == true) ? true : false;
+    }
+
     public function deleteId($id)
     {
         $this->deleteId = $id;
@@ -84,7 +89,7 @@ class MyLoan extends Component
     public function performAction()
     {
 
-        if (isValidatedLoan(Loan::find($this->deleteId))) {
+        if ($this->isValidatedLoan1(Loan::find($this->deleteId))) {
             session()->flash('error', 'Demande en cours de traitement');
         } else {
             Loan::find($this->deleteId)->delete();

@@ -7,13 +7,27 @@ use Livewire\Component;
 
 use App\Models\Investment;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
 class MyInvestments extends Component
 {
+    use WithFileUploads;
     use WithPagination;
 
     public Investment $investment;
+    public $deleteId = '';
+    public $investmentToUpdate;
+    public $address;
+    public $objectif;
+    public $amount;
+    public $group;
+    public $refund_deadline;
+    public $income;
+    public $number;
+    public $business_plan;
+    public $income_currency;
+    public $amount_currency;
 
     public function investmentList()
     {
@@ -28,13 +42,79 @@ class MyInvestments extends Component
         ]);
     }
 
-    public function deleteId(Investment $investment)
+    public function checkPeriod( string $refund_deadline, string $number): bool
     {
-        $this->investment = $investment;
+        if (($number == 'year' && intval($refund_deadline) <= 50) || ($number == 'month' && $refund_deadline <= 600)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function editInvestment(Investment $investment)
+    {
+
+        $this->investmentToUpdate = $investment;
+        $this->address = $investment->address;
+        $this->objectif = $investment->objectif;
+        $this->amount = explode(" ", $investment->amount)[0];
+        $this->refund_deadline = explode(" ", $investment->refund_deadline)[0];
+        $this->income = explode(" ", $investment->income)[0];
+        $this->number = explode(" ", $investment->refund_deadline)[1];
+        $this->group = $investment->group;
+        $this->income_currency = explode(" ", $investment->income)[1];
+        $this->amount_currency = explode(" ", $investment->amount)[1];
+    }
+
+    public function update()
+    {
+        if ($this->checkPeriod($this->refund_deadline, $this->number)) {
+            if($this->business_plan != null) {
+                $investment = $this->investmentToUpdate;
+                $investment->address = $this->address;
+                $investment->objectif = $this->objectif;
+                $investment->amount = $this->amount . ' ' . $this->amount_currency;
+                $investment->group = $this->group;
+                $investment->refund_deadline = $this->refund_deadline . ' ' . $this->number;
+                $investment->income = $this->income . ' ' . $this->income_currency;
+                $investment->business_plan = $this->business_plan->store('/', 'documents');
+                $investment->save();
+                session()->flash('success', 'Demande modifiée avec succès');
+                return redirect()->route('users.profil');
+            }else{
+                $investment = $this->investmentToUpdate;
+                $investment->address = $this->address;
+                $investment->objectif = $this->objectif;
+                $investment->amount = $this->amount . ' ' . $this->amount_currency;
+                $investment->group = $this->group;
+                $investment->refund_deadline = $this->refund_deadline . ' ' . $this->number;
+                $investment->income = $this->income . ' ' . $this->income_currency;
+                $investment->save();
+                session()->flash('success', 'Demande modifiée avec succès');
+                return redirect()->route('users.profil');
+            }
+        }
+        session()->flash('error', 'Délai de remboursement invalide');
+        return redirect()->route('users.profil');
+    }
+
+    function isValidatedInvestment(Investment $investment): bool
+    {
+        return ($investment->statut == true) ? true : false;
+    }
+
+    public function deleteId($id)
+    {
+        $this->deleteId = $id;
     }
 
     public function performAction()
     {
-        $this->investment->delete();
+        if ($this->isValidatedInvestment(Investment::find($this->deleteId))) {
+            session()->flash('error', 'Demande en cours de traitement');
+        } else {
+            Investment::find($this->deleteId)->delete();
+            session()->flash('success', 'Demande supprimée avec succès');
+        }
     }
 }
