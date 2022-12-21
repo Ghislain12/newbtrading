@@ -53,8 +53,6 @@
                         classes to control the content visibility and styling.</p>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>

@@ -85,9 +85,11 @@
                     </div>
                     <div class="flex gap-2">
                         <div style="width: 60%;">
-                            <label for="refund_deadline" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            <label for="refund_deadline"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Délai de </label>
-                            <input wire:model='refund_deadline' type="number" name="refund_deadline" id="refund_deadline"
+                            <input wire:model='refund_deadline' type="number" name="refund_deadline"
+                                id="refund_deadline"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                             @error('refund_deadline')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -126,9 +128,11 @@
                     @enderror
                     <div class="flex gap">
                         <div style="width: 100%;">
-                            <label for="business_plan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            <label for="business_plan"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Documents</label>
-                            <input wire:model='business_plan' accept=".pdf, .jpeg, .jpg" type="file" name="business_plan" id="business_plan" 
+                            <input wire:model='business_plan' accept=".pdf, .jpeg, .jpg" type="file"
+                                name="business_plan" id="business_plan"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                             @error('business_plan')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -141,4 +145,5 @@
                 </form>
             </div>
         </div>
+    </div>
 </div>

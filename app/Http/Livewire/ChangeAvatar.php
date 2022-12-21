@@ -7,6 +7,7 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ChangeAvatar extends Component
 {
@@ -21,10 +22,12 @@ class ChangeAvatar extends Component
         $this->validate([
             'photo' => 'image|max:1024',
         ]);
-        $this->user->image = $this->photo->store('/', 'images');
+        $path = Storage::putFile('images', $this->photo);
+        $this->user->image = $path;
         $this->user->save();
+        dd('succes');
         session()->flash('success', 'Avatar modifié avec succès');
-        return redirect()->route('users.profil');
+        return redirect()->route('users.pr                                                                                                                                                              ofil');
     }
 
     public function mount()
