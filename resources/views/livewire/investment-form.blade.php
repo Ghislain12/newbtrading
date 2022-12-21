@@ -1,5 +1,4 @@
-<div wire:ignore id="investment-modal" tabindex="-1" aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+<div>
     <div class="relative w-full h-full max-w-md md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -15,35 +14,11 @@
                 <span class="sr-only">Close modal</span>
             </button>
             <div class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Demande de prêts</h3>
-                <form  class="space-y-6">
-                    <div class="flex gap-2">
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Nom</label>
-                            <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                disabled>
-                        </div>
-                        <div>
-                            <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Prénom(s)</label>
-                            <input type="text" firstname="firstname" id="firstname"
-                                value="{{ Auth::user()->firstname }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <div style="width: 60%;">
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Email</label>
-                            <input type="email" name="email" id="email" value="{{ Auth::user()->email }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                disabled>
-                        </div>
-                        <div style="width: 38%">
-                            <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Demande d'investissement</h3>
+                <form wire:submit.prevent='addInvestment' class="space-y-6">
+                    <div class="flex gap">
+                        <div style="width: 100%">
+                            <label for="group" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Groupe social</label>
                             <select wire:model='group' name="" id=""
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
@@ -72,9 +47,10 @@
                                 Devise</label>
                             <select wire:model='amount_currency' name="" id=""
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                <option value="FCFA">FCFA</option>
-                                <option value="£">Euro</option>
+                                <option value="CHF">CHF</option>
+                                <option value="€">Euro</option>
                                 <option value="$">dollar</option>
+                                <option value="£">Livre Sterling</option>
                             </select>
                             @error('amount_currency')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -96,9 +72,10 @@
                                 Devise</label>
                             <select wire:model='income_currency' name="" id=""
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                <option value="FCFA">FCFA</option>
-                                <option value="£">Euro</option>
+                                <option value="CHF">CHF</option>
+                                <option value="€">Euro</option>
                                 <option value="$">Dollar</option>
+                                <option value="£">Livre Sterling</option>
                             </select>
                             @error('income_currency')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -107,11 +84,11 @@
                     </div>
                     <div class="flex gap-2">
                         <div style="width: 60%;">
-                            <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            <label for="refund_deadline" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Délai de </label>
-                            <input wire:model='number' type="number" name="income" id="income"
+                            <input wire:model='refund_deadline' type="number" name="refund_deadline" id="refund_deadline"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                            @error('number')
+                            @error('refund_deadline')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
@@ -147,10 +124,21 @@
                     @error('objectif')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
+                    <div class="flex gap">
+                        <div style="width: 100%;">
+                            <label for="business_plan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Documents</label>
+                            <input wire:model='business_plan' type="file" name="business_plan" id="business_plan"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                            @error('business_plan')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
                     <button type="submit" wire:click.prevent="addLoan()"
                         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Soumettre
                     </button>
                 </form>
             </div>
         </div>
-    </div>
+</div>

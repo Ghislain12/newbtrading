@@ -73,8 +73,9 @@
                             <select wire:model='amount_currency' name="" id=""
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="FCFA">FCFA</option>
-                                <option value="£">Euro</option>
+                                <option value="€">Euro</option>
                                 <option value="$">dollar</option>
+                                <option value="£">Livre Sterling</option>
                             </select>
                             @error('amount_currency')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -97,8 +98,9 @@
                             <select wire:model='income_currency' name="" id=""
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="FCFA">FCFA</option>
-                                <option value="£">Euro</option>
+                                <option value="€">Euro</option>
                                 <option value="$">Dollar</option>
+                                <option value="£">Livre Sterling</option>
                             </select>
                             @error('income_currency')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>

@@ -15,7 +15,15 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'real_public' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+    'name' => env('APP_NAME', 'Bank Trading'),
 
     /*
     |--------------------------------------------------------------------------
