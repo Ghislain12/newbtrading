@@ -16,7 +16,7 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Demande d'investissement</h3>
-                <form wire:submit.prevent='addInvestment' class="space-y-6">
+                <form wire:submit.prevent='addInvestment' enctype="multipart/form-data" class="space-y-6">
                     <div class="flex gap">
                         <div style="width: 100%">
                             <label for="group" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -46,7 +46,7 @@
                         <div style="width: 38%">
                             <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Devise</label>
-                            <select wire:model='amount_currency' name="" id=""
+                            <select wire:model='amount_currency' name="amount_currency" id="amount_currency"
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="CHF">CHF</option>
                                 <option value="€">Euro</option>
@@ -71,7 +71,7 @@
                         <div style="width: 38%">
                             <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Devise</label>
-                            <select wire:model='income_currency' name="" id=""
+                            <select wire:model='income_currency' name="income_currency" id="income_currency"
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="CHF">CHF</option>
                                 <option value="€">Euro</option>
@@ -96,13 +96,12 @@
                         <div style="width: 38%">
                             <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 remboursement</label>
-                            <select wire:model='period' name="" id=""
+                            <select wire:model='number' name="number" id="number"
                                 class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                <option value="Jours">Jours</option>
-                                <option value="Mois">Mois</option>
-                                <option value="Année">Année</option>
+                                <option value="month">Mois</option>
+                                <option value="year">Année</option>
                             </select>
-                            @error('period')
+                            @error('number')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
@@ -129,14 +128,14 @@
                         <div style="width: 100%;">
                             <label for="business_plan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Documents</label>
-                            <input wire:model='business_plan' type="file" name="business_plan" id="business_plan"
+                            <input wire:model='business_plan' accept=".pdf, .jpeg, .jpg" type="file" name="business_plan" id="business_plan" 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                             @error('business_plan')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
-                    <button type="submit" wire:click.prevent="addLoan()"
+                    <button type="submit"
                         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Soumettre
                     </button>
                 </form>
