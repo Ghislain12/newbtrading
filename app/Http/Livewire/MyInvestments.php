@@ -17,6 +17,7 @@ class MyInvestments extends Component
 
     public Investment $investment;
     public $deleteId = '';
+    public $currentId = '';
     public $investmentToUpdate;
     public $address;
     public $objectif;
@@ -108,6 +109,7 @@ class MyInvestments extends Component
         $this->deleteId = $id;
     }
 
+
     public function performAction()
     {
         if ($this->isValidatedInvestment(Investment::find($this->deleteId))) {
@@ -116,5 +118,18 @@ class MyInvestments extends Component
             Investment::find($this->deleteId)->delete();
             session()->flash('success', 'Demande supprimée avec succès');
         }
+    }
+
+
+    public function currentId($id)
+    {
+        $this->currentId = $id;
+    }
+
+     public function download($currentId)
+    {
+        $doc = investment::find($currentId);
+
+        return response()->download(storage_path('storage/export.csv'));
     }
 }

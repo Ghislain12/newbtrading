@@ -60,7 +60,7 @@
                         <div class="flex">
                             <a data-bs-toggle="tooltip" title="Supprimer ma demande">
                                 <svg wire:click="deleteId({{ json_encode($item->id)  }})"
-                                    data-modal-toggle="popup-modal" class="w-6 h-6 m-2 cursor-pointer" fill="#ff6347"
+                                    data-modal-toggle="popup-modal1" class="w-6 h-6 m-2 cursor-pointer" fill="#ff6347"
                                     viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="tooltip"
                                     data-bs-html="true" title="Supprimer">
                                     <path fill-rule="evenodd"
@@ -79,6 +79,9 @@
                                     </path>
                                 </svg>
                             </a>
+                            <a data-bs-toggle="tooltip" title="Télécharger">
+                                <svg wire:click='download({{ json_encode($item->id)  }})' class="w-6 h-6 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            </a>
                         </div>
                     </td>
                 </tr>
@@ -86,8 +89,8 @@
             </tbody>
         </table>
     </div>
-    <x-deletemodal></x-deletemodal>
     <x-edit-investment :groups='$groups'></x-edit-investment>
+    <x-delete-investment></x-delete-investment>
 </div>
 @else
 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">

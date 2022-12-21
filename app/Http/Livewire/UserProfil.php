@@ -46,14 +46,14 @@ class UserProfil extends Component
         ]);
     }
 
-    public function deleteId($id)
-    {
-        $this->deleteId = $id;
-    }
+    // public function deleteId($id)
+    // {
+    //     $this->deleteId = $id;
+    // }
 
-    public function remove()
-    {
-        Loan::find($this->deleteId)->delete();
-        session()->flash('success', 'Client supprimé avec succès');
-    }
+    // public function performAction()
+    // {
+    //     Loan::find($this->deleteId)->delete();
+    //     session()->flash('success', 'Client supprimé avec succès');
+    // }
 }

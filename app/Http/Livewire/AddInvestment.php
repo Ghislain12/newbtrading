@@ -24,7 +24,7 @@ class AddInvestment extends Component
     public $income_currency;
     public $amount_currency;
 
-    
+
     // public function mount()
     // {
     //     $this->groups = Groups::all();
@@ -33,14 +33,14 @@ class AddInvestment extends Component
     public function render()
     {
         return view('livewire.add-investment', [
-            'groups' =>Groups::all(),
+            'groups' => Groups::all(),
         ]);
     }
 
 
     public function checkPeriod(int $refund_deadline, string $number): bool
     {
-        
+
         if (
             ($number == 'year' && $refund_deadline <= 50) ||
             ($number == 'month' && $refund_deadline <= 600)
@@ -73,9 +73,9 @@ class AddInvestment extends Component
             $investment->objectif = $this->objectif;
             $investment->amount = $this->amount . ' ' . $this->amount_currency;
             $investment->group = $this->group;
-            $investment->refund_deadline = $this->refund_deadline .' ' . $this->number;
+            $investment->refund_deadline = $this->refund_deadline . ' ' . $this->number;
             $investment->income = $this->income . ' ' . $this->income_currency;
-            $investment->business_plan = $this->business_plan->store('/', 'documents');
+            $investment->business_plan = $this->business_plan->store('documents');
             $investment->save();
             session()->flash('success', 'Demande effectuée avec succès');
             return redirect()->route('users.profil');

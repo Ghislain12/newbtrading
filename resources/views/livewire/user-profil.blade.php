@@ -1,14 +1,14 @@
 @section('title', 'Mon profil')
 <div class="flex flex-col min-h-screen py-12 sm:px-6 lg:px-8">
-    <div class="mt-5 text-center ">
+    <div class="mt-5 text-center">
         @if (Auth::user()->image == null)
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . Auth::user()->name. '+' . Auth::user()->firstname}}"
-            class="w-32 mx-auto mb-4 rounded-full cursor-pointer" data-modal-toggle="edit-avatar-modal" alt="Avatar" />
-        <span
-            class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+            class="w-32 h-32 mx-auto mb-4 rounded-full cursor-pointer" data-modal-toggle="edit-avatar-modal"
+            alt="Avatar" />cod
         @else
-        <img src="{{ asset('storage/images/'.Auth::user()->image) }}"
-            class="w-32 h-32 mx-auto mb-4 rounded-full cursor-pointer" data-modal-toggle="edit-avatar-modal" alt="Avatar" />
+        <img src="{{ asset('/storage/app/'.Auth::user()->image) }}"
+            class="w-32 mx-auto mb-4 rounded-full cursor-pointer h-32" data-modal-toggle="edit-avatar-modal"
+            alt="Avatar" />
         @endif
         <h5 class="mb-2 text-xl font-medium leading-tight uppercase">{{ Auth::user()->name }} {{
             Auth::user()->firstname }}
