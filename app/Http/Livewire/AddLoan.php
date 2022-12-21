@@ -20,20 +20,6 @@ class AddLoan extends Component
     public $income_currency;
     public $amount_currency;
 
-    // public function mount()
-    // {
-    //     $this->groups = Groups::all();
-    // }
-
-    public function checkPeriod(string $period, string $number): bool
-    {
-        if (($period == 'year' && $number <= 20) || ($period == 'month' && $number <= 240)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function addLoan()
     {
         $this->validate([
@@ -48,7 +34,7 @@ class AddLoan extends Component
             'amount_currency' => 'required | string',
         ]);
 
-        if ($this->checkPeriod($this->period, $this->number)) {
+        if (checkPeriod($this->period, $this->number)) {
             $loan = new Loan();
             $loan->user_id = Auth::user()->id;
             $loan->address = $this->address;
