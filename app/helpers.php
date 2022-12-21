@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Loan;
+use Illuminate\Support\Facades\File;
 
 function isOjectNull(object $object): bool
 {
@@ -24,4 +25,13 @@ function checkPeriod(string $period, string $number): bool
 function isValidatedLoan(Loan $loan): bool
 {
     return ($loan->statut == true) ? true : false;
+}
+
+
+function upload($request)
+{
+    $filename = time() . $request->getClientOriginalName();
+    dd($filename);
+    $request->move(public_path('image'), $filename);
+    return $filename;
 }
