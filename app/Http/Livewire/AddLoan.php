@@ -2,11 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use id;
 use App\Models\Loan;
 use App\Mail\LoanMail;
 use App\Models\Groups;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AddLoan extends Component
 {
@@ -46,7 +48,7 @@ class AddLoan extends Component
             $loan->income = $this->income . ' ' . $this->income_currency;
             $loan->save();
             $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility];
-            Mail::to(Auth::user()->email)->send(new LoanMail($this->$mailData));
+            Mail::to(Auth::user()->email)->send(new LoanMail($mailData));
             session()->flash('success', 'Demande effectuée avec succès');
             return redirect()->route('users.profil');
         }
