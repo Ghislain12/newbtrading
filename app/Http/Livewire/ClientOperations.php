@@ -24,7 +24,6 @@ class ClientOperations extends Component
 
     public function render()
     {
-        // dd($this->loans);
         return view(
             'livewire.clientOperations',
             [
@@ -32,7 +31,6 @@ class ClientOperations extends Component
                 'investments' => $this->investments,
                 'loans' => $this->loans,
                 'userId' => $this->userId,
-                // 'isClient' => 'true',
             ]
         );
     }

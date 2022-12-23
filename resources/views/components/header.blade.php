@@ -1,10 +1,10 @@
-<nav id="header" class="fixed w-full z-30 top-0 text-white mb-10"
+<nav id="header" class="fixed top-0 z-30 w-full mb-10 text-white"
     style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);">
-    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-        <div class="pl-4 flex items-center">
-            <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
+    <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
+        <div class="flex items-center pl-4">
+            <a class="text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-4xl" href="/">
                 <!--Icon from: http://www.potlabicons.com/ -->
-                <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
+                <svg class="inline h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
                     <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502"
                         transform="matrix(1,0,0,1,0,0)" />
                     <path class="plane-take-off"
@@ -13,27 +13,27 @@
                 Btrading
             </a>
         </div>
-        <div class="block lg:hidden pr-4">
+        <div class="block pr-4 lg:hidden">
             <button id="nav-toggle"
-                class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                class="flex items-center p-1 text-pink-800 transition duration-300 ease-in-out transform hover:text-gray-900 focus:outline-none focus:shadow-outline hover:scale-105">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <title>Menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
                 </svg>
             </button>
         </div>
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+        <div class="z-20 flex-grow hidden w-full p-4 mt-2 text-black bg-white lg:flex lg:items-center lg:w-auto lg:mt-0 lg:bg-transparent lg:p-0"
             id="nav-content">
-            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <ul class="items-center justify-end flex-1 list-reset lg:flex">
                 <li class="mr-3">
-                    <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#">Services</a>
+                    <a class="inline-block px-4 py-2 font-bold text-black no-underline" href="#">Services</a>
                 </li>
                 <li class="mr-3">
-                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                    <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
                         href="#">A propos</a>
                 </li>
                 <li class="mr-3">
-                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                    <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
                         href="#">Contact</a>
                 </li>
             </ul>
@@ -42,15 +42,15 @@
 
 
             <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-white dark:hover:text-white md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white uppercase"
+                class="flex items-center text-sm font-medium text-gray-900 uppercase rounded-full hover:text-white dark:hover:text-white md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
                 type="button">
                 <span class="sr-only">Open user menu</span>
                 @if (Auth::user()->image == null)
-                <img class="mr-2 w-8 h-8 rounded-full"
+                <img class="w-8 h-8 mr-2 rounded-full"
                     src="{{ 'https://ui-avatars.com/api/?background=ffff&color=black/?uppercase=true&name=' . Auth::user()->name. '+' . Auth::user()->firstname}}"
                     alt="user image" />
                 @else
-                <img class="mr-2 w-8 h-8 rounded-full" src="{{ asset('/storage/'.Auth::user()->image) }}"
+                <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset('image/'.Auth::user()->image) }}"
                     alt="user image" />
                 @endif
                 {{ Auth::user()->name }} {{ Auth::user()->firstname }}
@@ -64,27 +64,27 @@
 
             <!-- Dropdown menu -->
             <div id="dropdownAvatarName"
-                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                     <li>
                         <a href="{{ route('users.profil') }}"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
                     </li>
                     <li>
                         <a href="{{ route('users.dashboard') }}"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
                     </li>
                     <li>
                 </ul>
                 <div class="py-1">
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Déconnexion</a>
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Déconnexion</a>
                 </div>
             </div>
 
@@ -95,13 +95,13 @@
             </form>
             @else
             <a href="{{ route('login') }}"><button id="navAction"
-                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0  py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    class="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105">
                     Connexion
                 </button></a>
 
             @if (Route::has('register'))
             <a href="{{ route('register') }}"><button id="navAction"
-                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    class="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105">
                     Inscription
                 </button></a>
             @endif
@@ -109,7 +109,7 @@
             @endif
         </div>
     </div>
-    <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+    <hr class="py-0 my-0 border-b border-gray-100 opacity-25" />
 </nav>
 
 <script>

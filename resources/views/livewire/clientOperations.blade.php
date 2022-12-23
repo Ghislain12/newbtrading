@@ -5,7 +5,7 @@
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . $user->name. '+' . $user->firstname}}"
             class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
         @else
-        <img src="{{ asset('image/'.$user->image) }}" class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
+        <img src="{{ asset('image/'$user->image) }}" class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
         @endif
         <h5 class="mb-2 text-xl font-medium leading-tight uppercase">{{ $user->name }} {{ $user->firstname }}</h5>
     </div>
@@ -82,7 +82,8 @@
             <div class="hidden rounded-lg bg-gray-50 dark:bg-gray-800" id="loan" role="tabpanel"
                 aria-labelledby="loan-tab">
                 @if (count($loans) > 0)
-                <x-user_loan :loans="$loans"></x-user_loan>
+                {{ $loans }}
+                {{-- <x-user_loan :loans="$loans"></x-user_loan> --}}
                 @else
                 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
                     <strong class="font-medium text-gray-800 dark:text-white">Aucune demande de prêt pour le moment
@@ -92,8 +93,9 @@
             </div>
             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="investment" role="tabpanel"
                 aria-labelledby="investment-tab">
-                @if (count($investments) > 0)
-                <p>investment</p>
+                @if (count($investments) > 0) 
+                {{ $investments }}
+                {{-- <x-user_investment :investments="$investments"></x-user_investment> --}}
                 @else
                 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
                     <strong class="font-medium text-gray-800 dark:text-white">Aucune demande d'investissement

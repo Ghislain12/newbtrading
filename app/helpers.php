@@ -1,8 +1,6 @@
 <?php
-namespace App\me\salanon\PROJETS\OWN\newbtrading\app;
 
 use App\Models\Loan;
-use App\Models\Investment;
 
 function isOjectNull(object $object): bool
 {

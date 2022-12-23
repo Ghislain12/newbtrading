@@ -13,17 +13,19 @@ class ChangeAvatar extends Component
 {
     use WithFileUploads;
 
-    public $photo;
+    public $image;
 
     public User $user;
 
     public function save()
     {
-        $this->validate([
-            'photo' => 'image|max:1024',
+        $dataValid = $this->validate([
+            'image' => 'required|image|mimes:jpg,jpeg,png,svg,gif|max:2048',
         ]);
-        $path = $this->photo->store('images', 'public');
-        $this->user->image = $path;
+
+        $dataValid['image'] = $this->image->store('todos', 'public');
+        // dd($this->image);
+        $this->user->image = $dataValid['image'];
         $this->user->save();
         session()->flash('success', 'Avatar modifié avec succès');
         return redirect()->route('users.profil');

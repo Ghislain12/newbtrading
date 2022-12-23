@@ -8,6 +8,7 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\InvestmentForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ClientOperations;
+use App\Http\Controllers\AvatarController;
 use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Passwords\Confirm;
@@ -62,4 +63,5 @@ Route::middleware('auth')->group(function () {
     Route::get('clients/{id}', ClientOperations::class)->name('clients.operations');
     Route::get('profil', UserProfil::class)->name('users.profil');
     Route::get('investmenForm', InvestmentForm::class)->name('investmentform');
+    Route::post('avatar', [AvatarController::class, 'save'])->name('avatar.change');
 });

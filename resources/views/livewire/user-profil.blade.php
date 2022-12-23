@@ -7,7 +7,7 @@
             alt="Avatar" />cod
         @else
         <div style="width: 128px; height:128px">
-            <img src="{{ asset('/storage/'.Auth::user()->image) }}"
+            <img src="{{ asset('image/'.Auth::user()->image) }}"
                 style="width: 100% !important; height:100% !important;" class="rounded-full cursor-pointer"
                 data-modal-toggle="edit-avatar-modal" alt="Avatar" />
         </div>
