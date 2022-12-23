@@ -1,5 +1,5 @@
 @section('title', 'Détail client')
-<div class="flex flex-col min-h-screen py-12 sm:px-6 lg:px-8">
+<div class="flex flex-col min-h-screen py-12 sm:px-6 lg:px-48">
     <div class="mt-5 text-center ">
         @if ($user->avatar == null)
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . $user->name. '+' . $user->firstname}}"
@@ -93,7 +93,7 @@
             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="investment" role="tabpanel"
                 aria-labelledby="investment-tab">
                 @if (count($investments) > 0)
-                <x-user_investment :investments="$investments"></x-user_investment>
+                <p>investment</p>
                 @else
                 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
                     <strong class="font-medium text-gray-800 dark:text-white">Aucune demande d'investissement

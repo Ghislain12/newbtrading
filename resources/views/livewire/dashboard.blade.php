@@ -1,6 +1,6 @@
 @section('title', 'Tableau de bord')
 <div>
-    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="overflow-x-auto sm:px-6 lg:px-48">
         <h2 class="mt-10 text-3xl font-extrabold leading-9 text-center text-gray-900">
             Tableau de bord
         </h2>

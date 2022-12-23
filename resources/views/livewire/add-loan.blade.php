@@ -18,45 +18,19 @@
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Demande de prêts</h3>
                 <form wire:submit.prevent='addLoan' class="space-y-6">
-                    <div class="flex gap-2">
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Nom</label>
-                            <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                disabled>
-                        </div>
-                        <div>
-                            <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Prénom(s)</label>
-                            <input type="text" firstname="firstname" id="firstname"
-                                value="{{ Auth::user()->firstname }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                disabled>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <div style="width: 60%;">
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Email</label>
-                            <input type="email" name="email" id="email" value="{{ Auth::user()->email }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                disabled>
-                        </div>
-                        <div style="width: 38%">
-                            <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Groupe social</label>
-                            <select wire:model='group'
-                                class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                <option value="">Groupe social</option>
-                                @foreach ($groups as $item)
-                                <option value="{{ $item->label }}">{{ $item->label }}</option>
-                                @endforeach
-                            </select>
-                            @error('group')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
+                    <div>
+                        <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Groupe social</label>
+                        <select wire:model='group'
+                            class="bg-gray-50 border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                            <option value="">Groupe social</option>
+                            @foreach ($groups as $item)
+                            <option value="{{ $item->label }}">{{ $item->label }}</option>
+                            @endforeach
+                        </select>
+                        @error('group')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="flex gap-2">
                         <div style="width: 60%;">

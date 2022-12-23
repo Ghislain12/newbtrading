@@ -60,6 +60,18 @@ class MyLoan extends Component
 
     public function update()
     {
+        $this->validate([
+            'address' => 'required | string',
+            'objectif' => 'required | string',
+            'amount' => 'required | integer',
+            'group' => 'required | string',
+            'period' => 'required | string',
+            'income' => 'required | string',
+            'number' => 'required | integer',
+            'income_currency' => 'required | string',
+            'amount_currency' => 'required | string',
+        ]);
+        
         if (checkPeriod($this->period, $this->number)) {
             $loan = $this->loanToUpdate;
             $loan->address = $this->address;
