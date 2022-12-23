@@ -6,8 +6,11 @@ use App\Models\Loan;
 use App\Models\Groups;
 use Livewire\Component;
 use App\Models\Investment;
+use App\Mail\InvestmentMail;
 use Livewire\WithFileUploads;
+use App\Jobs\InvestmentMailJob;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AddInvestment extends Component
 {
@@ -75,8 +78,11 @@ class AddInvestment extends Component
             $investment->group = $this->group;
             $investment->refund_deadline = $this->refund_deadline . ' ' . $this->number;
             $investment->income = $this->income . ' ' . $this->income_currency;
-            $investment->business_plan = $this->business_plan->store('documents');
+            $investment->business_plan = $this->business_plan->store('documents', 'public');
             $investment->save();
+            $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility];
+            // InvestmentMailJob::dispatch($mailData);
+            Mail::to(Auth::user()->email)->send(new InvestmentMail($this->$mailData));
             session()->flash('success', 'Demande effectuée avec succès');
             return redirect()->route('users.profil');
             }

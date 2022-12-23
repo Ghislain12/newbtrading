@@ -130,6 +130,6 @@ class MyInvestments extends Component
     {
         $doc = investment::find($currentId);
 
-        return response()->download(storage_path('storage/export.csv'));
+        return response()->download(storage_path('images/hero.png'));
     }
 }

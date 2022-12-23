@@ -22,12 +22,11 @@ class ChangeAvatar extends Component
         $this->validate([
             'photo' => 'image|max:1024',
         ]);
-        $path = Storage::putFile('images', $this->photo);
+        $path = $this->photo->store('images', 'public');
         $this->user->image = $path;
         $this->user->save();
-        dd('succes');
         session()->flash('success', 'Avatar modifié avec succès');
-        return redirect()->route('users.pr                                                                                                                                                              ofil');
+        return redirect()->route('users.profil');
     }
 
     public function mount()

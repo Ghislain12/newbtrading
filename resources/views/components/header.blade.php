@@ -45,12 +45,12 @@
                 class="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-white dark:hover:text-white md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white uppercase"
                 type="button">
                 <span class="sr-only">Open user menu</span>
-                @if (Auth::user()->avatar == null)
+                @if (Auth::user()->image == null)
                 <img class="mr-2 w-8 h-8 rounded-full"
                     src="{{ 'https://ui-avatars.com/api/?background=ffff&color=black/?uppercase=true&name=' . Auth::user()->name. '+' . Auth::user()->firstname}}"
                     alt="user image" />
                 @else
-                <img class="mr-2 w-8 h-8 rounded-full" src="{{ asset('image/'.Auth::user()->image) }}"
+                <img class="mr-2 w-8 h-8 rounded-full" src="{{ asset('/storage/'.Auth::user()->image) }}"
                     alt="user image" />
                 @endif
                 {{ Auth::user()->name }} {{ Auth::user()->firstname }}
