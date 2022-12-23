@@ -38,7 +38,6 @@
     <x-alert></x-alert>
 
     @yield('body')
-    @livewire('livewire-ui-modal')
 </body>
 <x-footer></x-footer>
 
