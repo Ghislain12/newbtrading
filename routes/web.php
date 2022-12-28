@@ -11,12 +11,14 @@ use App\Http\Livewire\DetailService;
 use App\Http\Livewire\InvestmentForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AddInvestment;
+use App\Http\Controllers\sendInvestDoc;
 use App\Http\Livewire\ClientOperations;
 use App\Http\Controllers\AvatarController;
 use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\InvestmentDocController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 
 /*
@@ -73,5 +75,7 @@ Route::middleware('auth')->group(function () {
     Route::post('avatar', [AvatarController::class, 'save'])->name('avatar.change');
     Route::post('adinvestment1', [AddInvestment::class, 'save'])->name('adinvestment.save');
     Route::get('adinvestmentform', [AddInvestment::class, 'getinvestmentform'])->name('getinvestmentform');
+    Route::post('documents/submit', [InvestmentDocController::class, 'senddocument'])->name('documents.submit');
+    Route::post('investment-doc', [sendInvestDoc::class, 'indexAction'])->name('documents.index');
 
 });

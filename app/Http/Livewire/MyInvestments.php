@@ -17,6 +17,7 @@ class MyInvestments extends Component
 
     public Investment $investment;
     public $deleteId = '';
+    public $user_id = 'rtyuii';
     public $currentId = '';
     public $investmentToUpdate;
     public $address;
@@ -39,7 +40,7 @@ class MyInvestments extends Component
     {
         return view('livewire.my-investments', [
             'investments' => $this->investmentList(),
-            'groups' => Groups::all()
+            'groups' => Groups::all(),
         ]);
     }
 
@@ -131,5 +132,10 @@ class MyInvestments extends Component
         $doc = investment::find($currentId);
 
         return response()->download(storage_path('images/hero.png'));
+    }
+
+    public function senddoc( Investment $service)
+    {
+        $this->user_id = $service->user_id;
     }
 }

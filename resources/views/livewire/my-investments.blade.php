@@ -79,9 +79,19 @@
                                     </path>
                                 </svg>
                             </a>
-                            <a data-bs-toggle="tooltip" title="Télécharger">
-                                <svg wire:click='download({{ json_encode($item->id)  }})' class="w-6 h-6 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <a data-bs-toggle="tooltip" title="Modifier ma demande">
+                                <svg data-modal-toggle="form-doc-modal"
+                                wire:click='senddoc({{ json_encode($item->id)  }})'
+                                    class="w-6 h-6 m-2 cursor-pointer" fill="#ff6347" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                    </path>
+                                </svg>
                             </a>
+                            <!-- <a data-bs-toggle="tooltip" title="Télécharger">
+                                <svg wire:click='download({{ json_encode($item->id)  }})' class="w-6 h-6 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            </a> -->
                         </div>
                     </td>
                 </tr>
@@ -91,6 +101,7 @@
     </div>
     <x-edit-investment :groups='$groups'></x-edit-investment>
     <x-delete-investment></x-delete-investment>
+    <x-send-doc-investment :user_id='$user_id'></x-send-doc-investment>
 </div>
 @else
 <p class="mt-10 text-sm text-center text-gray-500 dark:text-gray-400">
