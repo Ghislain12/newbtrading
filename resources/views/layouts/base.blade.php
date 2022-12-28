@@ -19,7 +19,7 @@
     <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-
+    <script src="//unpkg.com/alpinejs" defer></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts

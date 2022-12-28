@@ -80,7 +80,7 @@ class AddInvestment extends Component
             $investment->income = $this->income . ' ' . $this->income_currency;
             $investment->business_plan = $this->business_plan->store('documents', 'public');
             $investment->save();
-            $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility];
+            $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility, 'file'=> $this->business_plan];
             // InvestmentMailJob::dispatch($mailData);
             Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
             session()->flash('success', 'Demande effectuée avec succès');

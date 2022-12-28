@@ -10,7 +10,9 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\DetailService;
 use App\Http\Livewire\InvestmentForm;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddInvestment;
 use App\Http\Livewire\ClientOperations;
+use App\Http\Controllers\AvatarController;
 use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Passwords\Confirm;
@@ -68,4 +70,8 @@ Route::middleware('auth')->group(function () {
     Route::get('contact', Contact::class)->name('contact');
     Route::get('services/details', DetailService::class)->name('services.details');
     Route::get('investmenForm', InvestmentForm::class)->name('investmentform');
+    Route::post('avatar', [AvatarController::class, 'save'])->name('avatar.change');
+    Route::post('adinvestment1', [AddInvestment::class, 'save'])->name('adinvestment.save');
+    Route::get('adinvestmentform', [AddInvestment::class, 'getinvestmentform'])->name('getinvestmentform');
+
 });

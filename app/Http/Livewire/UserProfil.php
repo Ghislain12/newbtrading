@@ -45,15 +45,5 @@ class UserProfil extends Component
             'groups' => $this->groups,
         ]);
     }
-
-    // public function deleteId($id)
-    // {
-    //     $this->deleteId = $id;
-    // }
-
-    // public function performAction()
-    // {
-    //     Loan::find($this->deleteId)->delete();
-    //     session()->flash('success', 'Client supprimé avec succès');
-    // }
+    
 }

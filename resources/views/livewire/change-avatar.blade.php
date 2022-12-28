@@ -15,19 +15,55 @@
                 <span class="sr-only">Close modal</span>
             </button>
             <div class="px-6 py-6 mt-5 lg:px-8">
-                <form wire:submit.prevent="save" class="space-y-6">
-                    @if ($photo)
-                    Photo Preview:
-                    <img src="{{ $photo->temporaryUrl() }}">
+                {{-- <form action="{{ route('avatar.change') }}" method="POST" class="space-y-6"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @if ($image)
+                    Apperçu:
+                    <img src="{{ $image->temporaryUrl() }}">
                     @endif
-                    <input
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        type="file" wire:model="photo">
+                    <div x-data="{isUploading: false, progress: 5}" x-on:livewire-upload-start="isUploading = true"
+                        x-on:livewire-upload-finish="isUploading = false; progress: 5"
+                        x-on:livewire-upload-error="isUploading = false"
+                        x-on:livewire-upload-progress="progress = $event.detail.progress">
+                        <input name="avatar"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            type="file">
+                        <div x-show.transition="isUploading"
+                            class="w-full mt-5 bg-gray-200 rounded-full dark:bg-gray-700">
+                            <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                                x-bind:style="`width:${progress}%`" x-html="progress + '%'"></div>
+                        </div>
+                    </div>
 
-                    @error('photo') <span class="error">{{ $message }}</span> @enderror
+
+                    @error('image') <span class="error">{{ $message }}</span> @enderror
                     <button type="submit"
-                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Soumettre
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Soumettre
                     </button>
+                </form> --}}
+                <form action="{{ route('avatar.change') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @if ($image)
+                    Apperçu:
+                    <img src="{{ $image->temporaryUrl() }}">
+                    @endif
+                    <div x-data="{isUploading: false, progress: 5}" x-on:livewire-upload-start="isUploading = true"
+                        x-on:livewire-upload-finish="isUploading = false; progress: 5"
+                        x-on:livewire-upload-error="isUploading = false"
+                        x-on:livewire-upload-progress="progress = $event.detail.progress">
+                        <input type="file" name="image" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        <div x-show.transition="isUploading"
+                            class="w-full mt-5 bg-gray-200 rounded-full dark:bg-gray-700">
+                            <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                                x-bind:style="`width:${progress}%`" x-html="progress + '%'"></div>
+                        </div>
+                        <button type="submit"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5">
+                        Soumettre
+                    </button>
+                    </div>
                 </form>
             </div>
         </div>
