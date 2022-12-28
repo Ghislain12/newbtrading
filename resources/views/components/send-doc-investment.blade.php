@@ -1,11 +1,11 @@
-<div wire:ignore.self id="form-doc-modal" tabindex="-1" aria-hidden="true"
+<div wire:ignore.self id="doc-modal" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-md overflow-y-auto md:h-auto">
         <!-- Modal content -->
         <div class="relative overflow-y-auto bg-white rounded-lg shadow dark:bg-gray-700 ">
             <button type="button"
                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                data-modal-toggle="form-doc-modal">
+                data-modal-toggle="doc-modal">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -16,17 +16,14 @@
             </button>
             <div class="px-6 py-6 mt-5 lg:px-8">
                 <form action="{{ route('documents.index') }}" method="POST" enctype="multipart/form-data">
+                    {{ $userId }}
                     @csrf
+                    <input type="hidden" name = "user_id" value = "{{ $userId }}">
                     <div>
                         <label for="objectif" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Message</label>
-                        <textarea name='description' id="description" rows="1"
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
-                    </div>
-                    @error('description')
-                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror <br>
-                    <textarea name="user_id" id="" cols="30" rows="10"></textarea>
+                       
+                    <textarea name="description" id="" cols="30" rows="10"></textarea>
                     <div x-data="{isUploading: false, progress: 5}" x-on:livewire-upload-start="isUploading = true"
                         x-on:livewire-upload-finish="isUploading = false; progress: 5"
                         x-on:livewire-upload-error="isUploading = false"

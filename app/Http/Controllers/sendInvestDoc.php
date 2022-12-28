@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Senddocument;
 use Illuminate\Http\Request;
 
 class sendInvestDoc extends Controller
 {
     public function indexAction(Request $request){
-        dd($request);
         $validatedData = $request->validate([
             'user_id' => 'required|string',
             'description' => 'required|string',
@@ -34,7 +35,7 @@ class sendInvestDoc extends Controller
                 ];
         // SendDodumentJobMail::dispatch($data);
                 
-        Mail::to($user->email)->send(new MyDemoMail($data));
+        // Mail::to($user->email)->send(new MyDemoMail($data));
 
 
         return back()->with('success', 'Document sent successfully');

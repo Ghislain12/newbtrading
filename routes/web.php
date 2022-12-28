@@ -20,6 +20,7 @@ use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\InvestmentDocController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,4 +79,5 @@ Route::middleware('auth')->group(function () {
     Route::post('documents/submit', [InvestmentDocController::class, 'senddocument'])->name('documents.submit');
     Route::post('investment-doc', [sendInvestDoc::class, 'indexAction'])->name('documents.index');
 
+    Route::post('services', [ServicesController::class, 'save'])->name('services.create');
 });

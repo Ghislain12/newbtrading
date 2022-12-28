@@ -8,6 +8,7 @@ use App\Mail\InvestmentMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AddInvestment extends Controller
 {
@@ -17,9 +18,17 @@ class AddInvestment extends Controller
         return view('livewire.add-investment', ['groups' => $group]);
     }
 
+    function checkPeriod(string $period, string $number): bool
+{
+    if (($period == 'year' && $number <= 30) || ($period == 'month' && $number <= 600)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
     public function save(Request $request)
     {
-        dd($request);
         $request->validate([
             'address' => 'required | string',
             'objectif' => 'required | string',
@@ -32,7 +41,9 @@ class AddInvestment extends Controller
             'amount_currency' => 'required | string',
         ]);
 
-        if (checkPeriod($request->refund_deadline, $request->number) ) {
+         $email = Auth::user()->email;
+
+        if ($this->checkPeriod( $request->number, $request->refund_deadline) ) {
             if(!blank($request->business_plan)){
                 $file = $request->file('business_plan');
                 $filename = time() . $file->getClientOriginalName();
@@ -47,9 +58,15 @@ class AddInvestment extends Controller
                 $investment->income = $request->income . ' ' . $request->income_currency;
                 $investment->business_plan = $filename;
                 $investment->save();
-                $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility, 'file'=> $request->business_plan];
+                $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility, 'file'=> public_path('documents/'. $filename)];
                 // InvestmentMailJob::dispatch($mailData);
                 Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
+            //     Mail::send('Coupons.myPDF', $mailData, function ($message) use ($pdf, $email) {
+            //     $message->to($email);
+            //     $message->subject('Coupons');
+            //     $message->attachData($pdf->output(), 'coupons.pdf');
+            // });
+
                 session()->flash('success', 'Demande effectuée avec succès');
                 return redirect()->route('users.profil');
             }
@@ -61,9 +78,8 @@ class AddInvestment extends Controller
                 $investment->group = $request->group;
                 $investment->refund_deadline = $request->refund_deadline . ' ' . $request->number;
                 $investment->income = $request->income . ' ' . $request->income_currency;
-                $investment->business_plan = $filename;
                 $investment->save();
-                $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility, 'file'=> $request->business_plan];
+                $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility, 'file'=> null];
                 // InvestmentMailJob::dispatch($mailData);
                 Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
                 session()->flash('success', 'Demande effectuée avec succès');

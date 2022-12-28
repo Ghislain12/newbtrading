@@ -59,6 +59,10 @@ class InvestmentMail extends Mailable
      */
     public function attachments()
     {
+        if($this->mailData['file'] !=null){
+
         return [$this->mailData['file']];
+        }
+        return [];
     }
 }

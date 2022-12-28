@@ -28,6 +28,11 @@
                             data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts"
                             aria-selected="false">Épargne</button>
                     </li>
+                    <li>
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg " id="services-tab"
+                            data-tabs-target="#services" type="button" role="tab" aria-controls="services"
+                            aria-selected="false">Gestion des services</button>
+                    </li>
                 </ul>
             </div>
             <div id="myTabContent">
@@ -51,6 +56,10 @@
                         Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript
                         swaps
                         classes to control the content visibility and styling.</p>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="services" role="tabpanel"
+                    aria-labelledby="services-tab">
+                    @livewire('services')
                 </div>
             </div>
         </div>

@@ -16,11 +16,5 @@ class AvatarController extends Controller
         $user->image = $filename;
         $user->save();
         return redirect()->route('users.profil');
-        // dd($filename);
-        // $filename = $file->store('images');
-
-        // $image = new Image();
-        // $image->filename = $filename;
-        // $image->save();
     }
 }

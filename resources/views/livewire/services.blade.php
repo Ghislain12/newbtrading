@@ -1,181 +1,53 @@
 <div>
-<!-- Container for demo purpose -->
-<div class="container my-24 px-6 mx-auto">
-
-  <!-- Section: Design Block -->
-  <section class="mb-32 text-gray-800 text-center">
-
-    <h2 class="text-3xl font-bold mb-12 pb-4 text-center">Nos services</h2>
-
-    <div class="grid lg:grid-cols-3 gap-6 xl:gap-x-12">
-      <div class="mb-6 lg:mb-0">
-        <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
-            <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
-              data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/002.webp" class="w-full" />
-              <a href="{{ route('services.details') }}">
-                <div
-                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
-              </a>
+    <button type="button" data-modal-toggle="services-modal"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-2">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                clip-rule="evenodd">
+            </path>
+        </svg>
+        Services
+    </button>
+    <section class="py-8 bg-white border-b">
+        <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
+            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+                Services
+            </h2>
+            <div class="w-full mb-4">
+                <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
             </div>
-          </div>
-          <div class="p-6">
-            <h5 class="font-bold text-lg mb-3">White city</h5>
-            <p class="mb-4 pb-2">
-              Ut pretium ultricies dignissim. Sed sit amet mi eget urna
-              placerat vulputate. Ut vulputate est non quam dignissim
-              elementum. Donec a ullamcorper diam.
-            </p>
-            <a href="{{ route('services.details') }}" data-mdb-ripple="true" data-mdb-ripple-color="light"
-              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
-              more</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-6 lg:mb-0">
-        <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
-            <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
-              data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/066.webp" class="w-full" />
-              <a href="{{ route('services.details') }}">
-                <div
-                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
-              </a>
+            @foreach ($services as $item)
+            <div class="flex flex-col flex-grow flex-shrink w-full max-w-xs p-6 md:w-1/3">
+                <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
+                    <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                        <div class="w-full px-6 text-xl font-bold text-gray-800">
+                            {{ ucfirst($item->label) }}
+                        </div>
+                        <p class="px-6 mb-5 text-base text-gray-800">
+                            {{$item->description}}
+                        </p>
+                    </a>
+                </div>
+                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
+                    <div class="flex items-center justify-end">
+                        <a data-bs-toggle="tooltip" title="Supprimer le service"><svg
+                                wire:click="deleteId({{ json_encode($item->id)  }})"
+                                data-modal-toggle="service-delete-modal" class="w-6 h-6 m-2 cursor-pointer"
+                                fill="#ff6347" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                                data-bs-toggle="tooltip" data-bs-html="true" title="Supprimer">
+                                <path fill-rule="evenodd"
+                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                    clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="p-6">
-            <h5 class="font-bold text-lg mb-3">A lonely bench</h5>
-            <p class="mb-4 pb-2">
-              Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
-              diam orci, nec ornare metus semper sed. Integer volutpat
-              ornare erat sit amet rutrum.
-            </p>
-            <a href="{{ route('services.details') }}" data-mdb-ripple="true" data-mdb-ripple-color="light"
-              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
-              more</a>
-          </div>
+            @endforeach
         </div>
-      </div>
-
-      <div class="mb-0">
-        <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
-            <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
-              data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
-              <a href="{{ route('services.details') }}">
-                <div
-                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h5 class="font-bold text-lg mb-3">Happy snow</h5>
-            <p class="mb-4 pb-2">
-              Curabitur tristique, mi a mollis sagittis, metus felis mattis
-              arcu, non vehicula nisl dui quis diam. Mauris ut risus eget
-              massa volutpat feugiat. Donec.
-            </p>
-            <a href="{{ route('services.details') }}" data-mdb-ripple="true" data-mdb-ripple-color="light"
-              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
-              more</a>
-          </div>
-        </div>
-      </div>
-      <div class="mb-0">
-        <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
-            <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
-              data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
-              <a href="#!">
-                <div
-                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h5 class="font-bold text-lg mb-3">Happy snow</h5>
-            <p class="mb-4 pb-2">
-              Curabitur tristique, mi a mollis sagittis, metus felis mattis
-              arcu, non vehicula nisl dui quis diam. Mauris ut risus eget
-              massa volutpat feugiat. Donec.
-            </p>
-            <a href="{{ route('services.details') }}" data-mdb-ripple="true" data-mdb-ripple-color="light"
-              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
-              more</a>
-          </div>
-        </div>
-      </div>
-      <div class="mb-0">
-        <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
-            <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
-              data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
-              <a href="{{ route('services.details') }}">
-                <div
-                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h5 class="font-bold text-lg mb-3">Happy snow</h5>
-            <p class="mb-4 pb-2">
-              Curabitur tristique, mi a mollis sagittis, metus felis mattis
-              arcu, non vehicula nisl dui quis diam. Mauris ut risus eget
-              massa volutpat feugiat. Donec.
-            </p>
-            <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
-              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
-              more</a>
-          </div>
-        </div>
-      </div><div class="mb-0">
-        <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
-            <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
-              data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
-              <a href="{{ route('services.details') }}">
-                <div
-                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h5 class="font-bold text-lg mb-3">Happy snow</h5>
-            <p class="mb-4 pb-2">
-              Curabitur tristique, mi a mollis sagittis, metus felis mattis
-              arcu, non vehicula nisl dui quis diam. Mauris ut risus eget
-              massa volutpat feugiat. Donec.
-            </p>
-            <a href="{{ route('services.details') }}" data-mdb-ripple="true" data-mdb-ripple-color="light"
-              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
-              more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-  <!-- Section: Design Block -->
-
-</div>
-<!-- Container for demo purpose -->
+    </section>
+    @livewire('create-services')
+    <x-delete-service></x-delete-service>
 </div>

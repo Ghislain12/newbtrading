@@ -7,9 +7,8 @@
             alt="Avatar" />cod
         @else
         <div style="width: 128px; height:128px">
-            <img src="{{ asset('image/'.Auth::user()->image) }}"
-                style="width: 100% !important; height:100% !important;" class="rounded-full cursor-pointer"
-                data-modal-toggle="edit-avatar-modal" alt="Avatar" />
+            <img src="{{ asset('image/'.Auth::user()->image) }}" style="width: 100% !important; height:100% !important;"
+                class="rounded-full cursor-pointer" data-modal-toggle="edit-avatar-modal" alt="Avatar" />
         </div>
         @endif
         <h5 class="mb-2 text-xl font-medium leading-tight uppercase">{{ Auth::user()->name }} {{
@@ -77,7 +76,7 @@
             </svg>
             Prêts
         </button>
-        <button type="button" data-modal-toggle="investment-modal"
+        <button type="button" data-modal-toggle="add-investment-modad"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-2">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"

@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Groups;
-use Livewire\Component;
+use Illuminate\Support\Facades\Response;
 
+use Livewire\Component;
 use App\Models\Investment;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -19,6 +20,7 @@ class MyInvestments extends Component
     public $deleteId = '';
     public $user_id = 'rtyuii';
     public $currentId = '';
+    public $userId = 'uyyilk';
     public $investmentToUpdate;
     public $address;
     public $objectif;
@@ -41,10 +43,11 @@ class MyInvestments extends Component
         return view('livewire.my-investments', [
             'investments' => $this->investmentList(),
             'groups' => Groups::all(),
+            'userId' => $this->userId
         ]);
     }
 
-    public function checkPeriod( string $refund_deadline, string $number): bool
+    public function checkPeriod(string $refund_deadline, string $number): bool
     {
         if (($number == 'year' && intval($refund_deadline) <= 50) || ($number == 'month' && $refund_deadline <= 600)) {
             return true;
@@ -71,7 +74,7 @@ class MyInvestments extends Component
     public function update()
     {
         if ($this->checkPeriod($this->refund_deadline, $this->number)) {
-            if($this->business_plan != null) {
+            if ($this->business_plan != null) {
                 $investment = $this->investmentToUpdate;
                 $investment->address = $this->address;
                 $investment->objectif = $this->objectif;
@@ -83,7 +86,7 @@ class MyInvestments extends Component
                 $investment->save();
                 session()->flash('success', 'Demande modifiée avec succès');
                 return redirect()->route('users.profil');
-            }else{
+            } else {
                 $investment = $this->investmentToUpdate;
                 $investment->address = $this->address;
                 $investment->objectif = $this->objectif;
@@ -127,15 +130,21 @@ class MyInvestments extends Component
         $this->currentId = $id;
     }
 
-     public function download($currentId)
+    public function download($currentId)
     {
         $doc = investment::find($currentId);
 
-        return response()->download(storage_path('images/hero.png'));
+        $path = public_path('documents/'. $doc->business_plan);
+
+        return Response::download($path);
     }
 
-    public function senddoc( Investment $service)
+    public function setUserId(string $id)
     {
-        $this->user_id = $service->user_id;
+        $investment = Investment::where('id', $id)->first();
+        $this->userId = $investment->user_id;
+        ;
     }
+
+    
 }
