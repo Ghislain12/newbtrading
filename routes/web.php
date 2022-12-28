@@ -14,6 +14,7 @@ use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,4 +65,5 @@ Route::middleware('auth')->group(function () {
     Route::get('profil', UserProfil::class)->name('users.profil');
     Route::get('investmenForm', InvestmentForm::class)->name('investmentform');
     Route::post('avatar', [AvatarController::class, 'save'])->name('avatar.change');
+    Route::post('services', [ServicesController::class, 'save'])->name('services.create');
 });

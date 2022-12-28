@@ -24,7 +24,6 @@ class ServiceFactory extends Factory
             'description' => fake()->text(100),
             'advantages' => fake()->text(100),
             'terms' => fake()->text(200),
-            'type_service_id' => TypeService::all()->random()->id
         ];
     }
 }

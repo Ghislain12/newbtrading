@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             GroupSeeder::class
         ]);
         User::factory()->count(100)->create();
-        Service::factory()->count(10)->create();
+        // Service::factory()->count(10)->create();
         Investment::factory()->count(50)->create();
         Loan::factory()->count(50)->create();
     }

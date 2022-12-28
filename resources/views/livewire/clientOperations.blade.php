@@ -5,7 +5,7 @@
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . $user->name. '+' . $user->firstname}}"
             class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
         @else
-        <img src="{{ asset('image/'$user->image) }}" class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
+        <img src="{{ asset('image/'.$user->image) }}" class="w-32 mx-auto mb-4 rounded-full" alt="Avatar" />
         @endif
         <h5 class="mb-2 text-xl font-medium leading-tight uppercase">{{ $user->name }} {{ $user->firstname }}</h5>
     </div>
