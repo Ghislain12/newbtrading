@@ -24,6 +24,7 @@ class Services extends Component
     public function performAction()
     {
         $this->deletedId->delete();
+        session()->flash('success', 'Service supprimé avec succès');
     }
     public function render()
     {
