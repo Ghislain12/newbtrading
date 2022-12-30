@@ -1,5 +1,4 @@
 <?php
-
 use App\Models\Loan;
 
 function isOjectNull(object $object): bool

@@ -82,7 +82,7 @@ class AddInvestment extends Component
             $investment->save();
             $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility];
             // InvestmentMailJob::dispatch($mailData);
-            Mail::to(Auth::user()->email)->send(new InvestmentMail($this->$mailData));
+            Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
             session()->flash('success', 'Demande effectuée avec succès');
             return redirect()->route('users.profil');
             }

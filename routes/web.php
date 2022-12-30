@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Livewire\Contact;
+use App\Http\Livewire\Services;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\UserProfil;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\DetailService;
 use App\Http\Livewire\InvestmentForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ClientOperations;
@@ -63,6 +66,9 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', Dashboard::class)->name('users.dashboard');
     Route::get('clients/{id}', ClientOperations::class)->name('clients.operations');
     Route::get('profil', UserProfil::class)->name('users.profil');
+    Route::get('services', Services::class)->name('services');
+    Route::get('contact', Contact::class)->name('contact');
+    Route::get('services/details', DetailService::class)->name('services.details');
     Route::get('investmenForm', InvestmentForm::class)->name('investmentform');
     Route::post('avatar', [AvatarController::class, 'save'])->name('avatar.change');
     Route::post('services', [ServicesController::class, 'save'])->name('services.create');

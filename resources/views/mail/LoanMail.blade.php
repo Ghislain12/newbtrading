@@ -1,12 +1,15 @@
 <x-mail::message>
-# Introduction
+#  {{ $mailData['name'] }} {{ $mailData['firstname'] }},
 
-The body of your message.
+Vous venez de faire une demande d'investissement Chez Bank Trading .
 
-<x-mail::button :url="''">
+Cette demande est en cours de traitement, veuillez patienter...
+
+<!-- <x-mail::button :url="''">
 Button Text
-</x-mail::button>
+</x-mail::button> -->
+Notre centre de traiment vous répondra dans quelques instant.
 
-Thanks,<br>
+Merci,<br>
 {{ config('app.name') }}
 </x-mail::message>

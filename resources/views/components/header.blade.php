@@ -26,7 +26,7 @@
             id="nav-content">
             <ul class="items-center justify-end flex-1 list-reset lg:flex">
                 <li class="mr-3">
-                    <a class="inline-block px-4 py-2 font-bold text-black no-underline" href="#">Services</a>
+                    <a class="inline-block px-4 py-2 font-bold text-black no-underline" href="{{ route('services') }}">Services</a>
                 </li>
                 <li class="mr-3">
                     <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
@@ -34,7 +34,7 @@
                 </li>
                 <li class="mr-3">
                     <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
-                        href="#">Contact</a>
+                        href="{{ route('contact') }}">Contact</a>
                 </li>
             </ul>
             @if (Route::has('login'))
