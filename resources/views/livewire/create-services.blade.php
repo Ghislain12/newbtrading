@@ -15,7 +15,7 @@
                 <span class="sr-only">Close modal</span>
             </button>
             <div class="px-6 py-6 mt-5 lg:px-8">
-                {{-- <form action="{{ route('avatar.change') }}" method="POST" class="space-y-6"
+                <!-- {{-- <form action="{{ route('avatar.change') }}" method="POST" class="space-y-6"
                     enctype="multipart/form-data">
                     @csrf
                     @if ($image)
@@ -42,7 +42,7 @@
                         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Soumettre
                     </button>
-                </form> --}}
+                </form> --}} -->
                 <form action="{{ route('services.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
@@ -87,6 +87,16 @@
                         <input type="file" name="image"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                     </div>
+                    <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                            <div class="col-md-6">
+                                {!! RecaptchaV3::field('register') !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
 
                     <button type="submit"

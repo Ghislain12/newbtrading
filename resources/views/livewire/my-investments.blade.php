@@ -80,7 +80,7 @@
                                 </svg>
                             </a>
                             <a data-bs-toggle="tooltip" title="Imprimer">
-                                <svg wire:click='setUserId({{ json_encode($item->id)  }})' data-modal-toggle="doc-modal"
+                                <svg wire:click='setUserId({{ json_encode($item->id)}})' data-modal-toggle="doc-modal"
                                     class="w-6 h-6 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

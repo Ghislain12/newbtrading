@@ -34,6 +34,7 @@ use App\Http\Controllers\ServicesController;
 */
 
 Route::view('/', 'welcome')->name('home');
+Route::get('/documents/loan', [sendInvestDoc::class, 'loadloan'])->name('documents.loan');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

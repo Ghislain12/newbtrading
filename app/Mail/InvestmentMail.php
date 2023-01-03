@@ -44,6 +44,7 @@ class InvestmentMail extends Mailable
      */
     public function content()
     {
+        dd($this->mailData);
         return new Content(
             markdown: 'mail.InvestmentMail',
             with: [

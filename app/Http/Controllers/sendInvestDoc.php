@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use PDF;
 use App\Models\Senddocument;
 use Illuminate\Http\Request;
 
@@ -40,5 +41,12 @@ class sendInvestDoc extends Controller
 
         return back()->with('success', 'Document sent successfully');
 
+    }
+
+    public function loadloan()
+    {
+        // dd('ok');
+        $pdf = PDF::loadView('components.loandoc');
+        return $pdf->stream();
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Groups;
 use App\Models\Investment;
 use App\Mail\InvestmentMail;
 use Illuminate\Http\Request;
+use App\Jobs\InvestmentMailJob;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -59,8 +60,8 @@ class AddInvestment extends Controller
                 $investment->business_plan = $filename;
                 $investment->save();
                 $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility, 'file'=> public_path('documents/'. $filename)];
-                // InvestmentMailJob::dispatch($mailData);
-                Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
+                InvestmentMailJob::dispatch($mailData);
+                // Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
             //     Mail::send('Coupons.myPDF', $mailData, function ($message) use ($pdf, $email) {
             //     $message->to($email);
             //     $message->subject('Coupons');
@@ -80,8 +81,8 @@ class AddInvestment extends Controller
                 $investment->income = $request->income . ' ' . $request->income_currency;
                 $investment->save();
                 $mailData = ['name' => Auth::user()->name, 'firstname' => Auth::user()->firstname, 'civility' => Auth::user()->civility, 'file'=> null];
-                // InvestmentMailJob::dispatch($mailData);
-                Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
+                InvestmentMailJob::dispatch($mailData);
+                // Mail::to(Auth::user()->email)->send(new InvestmentMail($mailData));
                 session()->flash('success', 'Demande effectuée avec succès');
                 return redirect()->route('users.profil');
         }
