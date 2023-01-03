@@ -26,4 +26,12 @@ class Loan extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public static function isValidated(Loan $loan)
+    {
+        if ($loan->statut == true) {
+            return true;
+        }
+        return false;
+    }
 }

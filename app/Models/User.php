@@ -53,4 +53,52 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Status::class, 'status_id');
     }
+
+    public static function isAdmin($userId)
+    {
+        $admin = Status::where('label', 'admin')->first();
+        $admin_id = $admin->id;
+        $user = User::where('id', $userId)->first();
+        $status_id = $user->status_id;
+        if ($status_id == $admin_id) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function isDirector($userId)
+    {
+        $director = Status::where('label', 'directeur')->first();
+        $director_id = $director->id;
+        $user = User::where('id', $userId)->first();
+        $status_id = $user->status_id;
+        if ($status_id == $director_id) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function isComptable($userId)
+    {
+        $comptable = Status::where('label', 'comptable')->first();
+        $comptable_id = $comptable->id;
+        $user = User::where('id', $userId)->first();
+        $status_id = $user->status_id;
+        if ($status_id == $comptable_id) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function isClient($userId)
+    {
+        $client = Status::where('label', 'client')->first();
+        $client_id = $client->id;
+        $user = User::where('id', $userId)->first();
+        $status_id = $user->status_id;
+        if ($status_id == $client_id) {
+            return true;
+        }
+        return false;
+    }
 }

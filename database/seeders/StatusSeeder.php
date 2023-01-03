@@ -16,7 +16,7 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        $status = ['directeur', 'directeur', 'comptable', 'client'];
+        $status = ['admin', 'directeur', 'comptable', 'client'];
         foreach ($status as $a) {
             $new_status = Status::create([
                 'id' => Str::uuid(),

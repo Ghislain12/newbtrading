@@ -20,6 +20,7 @@
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
@@ -32,7 +33,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
-<x-header></x-header>
+{{-- <x-header></x-header> --}}
+@livewire('navbar')
 
 <body>
     <x-alert></x-alert>
