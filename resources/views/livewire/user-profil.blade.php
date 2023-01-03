@@ -4,7 +4,7 @@
         @if (Auth::user()->image == null)
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . Auth::user()->name. '+' . Auth::user()->firstname}}"
             class="w-32 h-32 mx-auto mb-4 rounded-full cursor-pointer" data-modal-toggle="edit-avatar-modal"
-            alt="Avatar" />cod
+            alt="Avatar" />
         @else
         <div style="width: 128px; height:128px">
             <img src="{{ asset('image/'.Auth::user()->image) }}" style="width: 100% !important; height:100% !important;"

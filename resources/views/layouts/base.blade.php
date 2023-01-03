@@ -21,6 +21,7 @@
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    @livewire('head.tinymce-config')
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
