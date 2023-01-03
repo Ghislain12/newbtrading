@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Groups;
-use Livewire\Component;
+use Illuminate\Support\Facades\Response;
 
+use Livewire\Component;
 use App\Models\Investment;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -17,6 +18,7 @@ class MyInvestments extends Component
 
     public Investment $investment;
     public $deleteId = '';
+    public $user_id = 'rtyuii';
     public $currentId = '';
     public $userId = 'uyyilk';
     public $investmentToUpdate;
@@ -132,13 +134,17 @@ class MyInvestments extends Component
     {
         $doc = investment::find($currentId);
 
-        return response()->download(storage_path('images/hero.png'));
+        $path = public_path('documents/'. $doc->business_plan);
+
+        return Response::download($path);
     }
 
     public function setUserId(string $id)
     {
-        // dd($id);
         $investment = Investment::where('id', $id)->first();
         $this->userId = $investment->user_id;
+        ;
     }
+
+    
 }

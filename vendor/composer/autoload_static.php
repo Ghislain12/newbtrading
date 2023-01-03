@@ -17,19 +17,18 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
-        '5f2edeb18ca19ebd9ee6da72dc9f4292' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/helpers.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -122,6 +121,7 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         ),
         'L' => 
         array (
+            'Lunaweb\\RecaptchaV3\\' => 20,
             'Livewire\\' => 9,
             'LivewireUI\\Modal\\' => 17,
             'League\\MimeTypeDetection\\' => 25,
@@ -178,7 +178,6 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         'B' => 
         array (
             'Brick\\Math\\' => 11,
-            'Biscolab\\ReCaptcha\\' => 19,
             'Barryvdh\\DomPDF\\' => 16,
         ),
         'A' => 
@@ -409,6 +408,10 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
+        'Lunaweb\\RecaptchaV3\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src',
+        ),
         'Livewire\\' => 
         array (
             0 => __DIR__ . '/..' . '/livewire/livewire/src',
@@ -551,10 +554,6 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
-        'Biscolab\\ReCaptcha\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src',
-        ),
         'Barryvdh\\DomPDF\\' => 
         array (
             0 => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src',
@@ -585,6 +584,7 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         'App\\Http\\Controllers\\AvatarController' => __DIR__ . '/../..' . '/app/Http/Controllers/AvatarController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ServicesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServicesController.php',
+        'App\\Http\\Controllers\\sendInvestDoc' => __DIR__ . '/../..' . '/app/Http/Controllers/sendInvestDoc.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\AddInvestment' => __DIR__ . '/../..' . '/app/Http/Livewire/AddInvestment.php',
         'App\\Http\\Livewire\\AddLoan' => __DIR__ . '/../..' . '/app/Http/Livewire/AddLoan.php',
@@ -611,6 +611,7 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         'App\\Http\\Livewire\\Navbar' => __DIR__ . '/../..' . '/app/Http/Livewire/Navbar.php',
         'App\\Http\\Livewire\\Recaptcha' => __DIR__ . '/../..' . '/app/Http/Livewire/Recaptcha.php',
         'App\\Http\\Livewire\\Saving' => __DIR__ . '/../..' . '/app/Http/Livewire/Saving.php',
+        'App\\Http\\Livewire\\SendDocInvestment' => __DIR__ . '/../..' . '/app/Http/Livewire/SendDocInvestment.php',
         'App\\Http\\Livewire\\Services' => __DIR__ . '/../..' . '/app/Http/Livewire/Services.php',
         'App\\Http\\Livewire\\UserProfil' => __DIR__ . '/../..' . '/app/Http/Livewire/UserProfil.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -649,14 +650,6 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         'Barryvdh\\DomPDF\\Facade\\Pdf' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade/Pdf.php',
         'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',
         'Barryvdh\\DomPDF\\ServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/ServiceProvider.php',
-        'Biscolab\\ReCaptcha\\Controllers\\ReCaptchaController' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/Controllers/ReCaptchaController.php',
-        'Biscolab\\ReCaptcha\\Exceptions\\InvalidConfigurationException' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/Exceptions/InvalidConfigurationException.php',
-        'Biscolab\\ReCaptcha\\Facades\\ReCaptcha' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/Facades/ReCaptcha.php',
-        'Biscolab\\ReCaptcha\\ReCaptchaBuilder' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilder.php',
-        'Biscolab\\ReCaptcha\\ReCaptchaBuilderInvisible' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilderInvisible.php',
-        'Biscolab\\ReCaptcha\\ReCaptchaBuilderV2' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilderV2.php',
-        'Biscolab\\ReCaptcha\\ReCaptchaBuilderV3' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaBuilderV3.php',
-        'Biscolab\\ReCaptcha\\ReCaptchaServiceProvider' => __DIR__ . '/..' . '/biscolab/laravel-recaptcha/src/ReCaptchaServiceProvider.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
@@ -3426,6 +3419,9 @@ class ComposerStaticInit5bde153d02e3c844911155f16b08dd37
         'Livewire\\Wireable' => __DIR__ . '/..' . '/livewire/livewire/src/Wireable.php',
         'Livewire\\WithFileUploads' => __DIR__ . '/..' . '/livewire/livewire/src/WithFileUploads.php',
         'Livewire\\WithPagination' => __DIR__ . '/..' . '/livewire/livewire/src/WithPagination.php',
+        'Lunaweb\\RecaptchaV3\\Facades\\RecaptchaV3' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/Facades/RecaptchaV3.php',
+        'Lunaweb\\RecaptchaV3\\Providers\\RecaptchaV3ServiceProvider' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/Providers/RecaptchaV3ServiceProvider.php',
+        'Lunaweb\\RecaptchaV3\\RecaptchaV3' => __DIR__ . '/..' . '/josiasmontag/laravel-recaptchav3/src/RecaptchaV3.php',
         'Masterminds\\HTML5' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5.php',
         'Masterminds\\HTML5\\Elements' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Elements.php',
         'Masterminds\\HTML5\\Entities' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Entities.php',

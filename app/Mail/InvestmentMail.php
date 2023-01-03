@@ -44,7 +44,7 @@ class InvestmentMail extends Mailable
      */
     public function content()
     {
-        dd($this->maildata);
+        dd($this->mailData);
         return new Content(
             markdown: 'mail.InvestmentMail',
             with: [
@@ -60,6 +60,10 @@ class InvestmentMail extends Mailable
      */
     public function attachments()
     {
+        if($this->mailData['file'] !=null){
+
+        return [$this->mailData['file']];
+        }
         return [];
     }
 }

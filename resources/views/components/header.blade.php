@@ -26,15 +26,14 @@
             id="nav-content">
             <ul class="items-center justify-end flex-1 list-reset lg:flex">
                 <li class="mr-3">
-                    <a class="inline-block px-4 py-2 font-bold text-black no-underline"
-                        href="{{ route('services') }}">Services</a>
+                    <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="{{ route('services') }}">Services</a>
                 </li>
                 <li class="mr-3">
                     <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
                         href="#">A propos</a>
                 </li>
                 <li class="mr-3">
-                    <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
                         href="{{ route('contact') }}">Contact</a>
                 </li>
             </ul>
