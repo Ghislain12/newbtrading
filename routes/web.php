@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 
-    Route::get('dashboard', Dashboard::class)->name('users.dashboard');
+    Route::get('dashboard', Dashboard::class)->name('users.dashboard')->middleware('admin');
     Route::get('clients/{id}', ClientOperations::class)->name('clients.operations');
     Route::get('profil', UserProfil::class)->name('users.profil');
     Route::get('services', Services::class)->name('services');
