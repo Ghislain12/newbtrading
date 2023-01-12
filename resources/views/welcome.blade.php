@@ -21,7 +21,7 @@
             </button>
         </div>
         <!--Right Col-->
-        <div class="w-full py-6 text-center md:w-3/5">
+        <div class="w-full py-6 text-center md:w-3/5 animate__animated animate__backInDown ">
             <img class="z-50 w-full md:w-4/5" src="{{ asset('images/hero.png') }}" />
         </div>
     </div>

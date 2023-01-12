@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
