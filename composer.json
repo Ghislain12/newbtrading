@@ -11,6 +11,7 @@
 		"php": "^8.0.2",
 		"barryvdh/laravel-dompdf": "^2.0",
 		"guzzlehttp/guzzle": "^7.2",
+		"illuminate/mail": "*",
 		"josiasmontag/laravel-recaptchav3": "^1.0",
 		"laravel-frontend-presets/tall": "^5.0",
 		"laravel/framework": "^9.19",

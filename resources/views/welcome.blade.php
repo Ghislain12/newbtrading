@@ -9,10 +9,10 @@
         <!--Left Col-->
         <div class="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left">
             <p class="w-full uppercase tracking-loose">Plus simple, plus rapide et plus sûr...</p>
-            <h1 class="my-4 text-5xl font-bold leading-tight">
+            <h1 class="my-4 text-5xl font-bold leading-tight ">
                 Bienvenue à POWER RUMING FINANCE
             </h1>
-            <p class="mb-8 text-2xl leading-normal">
+            <p class="mb-8 text-2xl leading-normal ">
                 Sub-hero message, not too long and not too short. Make it just right!
             </p>
             <button
@@ -21,7 +21,7 @@
             </button>
         </div>
         <!--Right Col-->
-        <div class="w-full py-6 text-center md:w-3/5 animate__animated animate__backInDown ">
+        <div class="w-full py-6 text-center md:w-3/5 animate__animated animate__backInDown">
             <img class="z-50 w-full md:w-4/5" src="{{ asset('images/hero.png') }}" />
         </div>
     </div>
@@ -49,26 +49,27 @@
         </g>
     </svg>
 </div>
-<section class="py-8 bg-white border-b">
-    <div class="container max-w-5xl m-8 mx-auto">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+<section class="py-8 bg-white border-b ">
+    <div class="container max-w-5xl m-8 mx-auto ">
+        <h2
+            class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 wow animate__animated animate__zoomInDown">
             Particularités
         </h2>
-        <div class="w-full mb-4">
+        <div class="w-full mb-4 ">
             <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
         </div>
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap wow animate__animated animate__fadeInLeft">
             <div class="w-5/6 p-6 sm:w-1/2">
-                <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
+                <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800 ">
                     Efficacité
                 </h3>
-                <p class="mb-8 text-gray-600">
+                <p class="mb-8 text-gray-600 ">
                     Au cours des 10 dernières années nous avons aidé des millions de personnes à prendre le contrôle de
                     leur dette, à concrétiser ou à faire croître leur entreprise et à inventer leur avenir.
                     <br />
                     <br />
                     Images from:
-                    <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+                    <a class="text-pink-500 underline " href="https://undraw.co/">undraw.co</a>
                 </p>
             </div>
             <div class="w-full p-6 sm:w-1/2">
@@ -196,7 +197,7 @@
                 </svg>
             </div>
         </div>
-        <div class="flex flex-col-reverse flex-wrap sm:flex-row">
+        <div class="flex flex-col-reverse flex-wrap sm:flex-row wow animate__animated animate__fadeInRight">
             <div class="w-full p-6 mt-6 sm:w-1/2">
                 <svg class="w-5/6 mx-auto sm:h-64" viewBox="0 0 1176.60617 873.97852"
                     xmlns="http://www.w3.org/2000/svg">
@@ -290,35 +291,35 @@
                 </svg>
             </div>
             <div class="w-full p-6 mt-6 sm:w-1/2">
-                <div class="align-middle">
-                    <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
+                <div class="align-middle ">
+                    <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800 ">
                         Accessible
                     </h3>
-                    <p class="mb-8 text-gray-600">
+                    <p class="mb-8 text-gray-600 ">
                         POWER RUMING FINANCE vous offre la possibilité d’accéder, de façon fiable et très sécurisée, au
                         prêt en ligne sans vous déplacer.
                         <br />
                         <br />
                         Images from:
 
-                        <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+                        <a class="text-pink-500 underline " href="https://undraw.co/">undraw.co</a>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap wow animate__animated animate__fadeInUp">
             <div class="w-5/6 p-6 sm:w-1/2">
-                <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800">
+                <h3 class="mb-3 text-3xl font-bold leading-none text-gray-800 ">
                     Rapide
                 </h3>
-                <p class="mb-8 text-gray-600">
+                <p class="mb-8 text-gray-600 ">
                     Nous avons mis en place l’une des technologies les plus innovantes du secteur financier en ligne et
                     nous disposons d’un cadre juridique avéré nous permettant de traiter vos demandes avec efficacité et
                     en un temps express.
                     <br />
                     <br />
                     Images from:
-                    <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+                    <a class="text-pink-500 underline " href="https://undraw.co/">undraw.co</a>
                 </p>
             </div>
             <div class="w-full p-6 sm:w-1/2">
@@ -448,31 +449,31 @@
         </div>
     </div>
 </section>
-<section class="py-8 bg-white border-b">
-    <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+<section class="py-8 bg-white border-b ">
+    <div class="container flex flex-wrap pt-4 pb-12 mx-auto ">
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 wow animate__animated animate__zoomInDown">
             Services
         </h2>
-        <div class="w-full mb-4">
+        <div class="w-full mb-4 ">
             <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
         </div>
-        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
-            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
+        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3 wow animate__animated animate__backInLeft">
+            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow ">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
                     <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
                         xGETTING STARTED
                     </p>
-                    <div class="w-full px-6 text-xl font-bold text-gray-800">
+                    <div class="w-full px-6 text-xl font-bold text-gray-800 ">
                         Lorem ipsum dolor sit amet.
                     </div>
-                    <p class="px-6 mb-5 text-base text-gray-800">
+                    <p class="px-6 mb-5 text-base text-gray-800 ">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                         posuere et sit amet ligula.
                     </p>
                 </a>
             </div>
-            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-                <div class="flex items-center justify-start">
+            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow ">
+                <div class="flex items-center justify-start ">
                     <button
                         class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                         Action
@@ -480,23 +481,23 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
-            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
+        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3 wow animate__animated animate__backInUp">
+            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow ">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
                     <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
                         xGETTING STARTED
                     </p>
-                    <div class="w-full px-6 text-xl font-bold text-gray-800">
+                    <div class="w-full px-6 text-xl font-bold text-gray-800 ">
                         Lorem ipsum dolor sit amet.
                     </div>
-                    <p class="px-6 mb-5 text-base text-gray-800">
+                    <p class="px-6 mb-5 text-base text-gray-800 ">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                         posuere et sit amet ligula.
                     </p>
                 </a>
             </div>
-            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-                <div class="flex items-center justify-center">
+            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow ">
+                <div class="flex items-center justify-center ">
                     <button
                         class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                         Action
@@ -504,23 +505,23 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
-            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
+        <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3 wow animate__animated animate__backInRight">
+            <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow ">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
                     <p class="w-full px-6 text-xs text-gray-600 md:text-sm">
                         xGETTING STARTED
                     </p>
-                    <div class="w-full px-6 text-xl font-bold text-gray-800">
+                    <div class="w-full px-6 text-xl font-bold text-gray-800 ">
                         Lorem ipsum dolor sit amet.
                     </div>
-                    <p class="px-6 mb-5 text-base text-gray-800">
+                    <p class="px-6 mb-5 text-base text-gray-800 ">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                         posuere et sit amet ligula.
                     </p>
                 </a>
             </div>
-            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-                <div class="flex items-center justify-end">
+            <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow ">
+                <div class="flex items-center justify-end ">
                     <button
                         class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                         Action
@@ -530,32 +531,32 @@
         </div>
     </div>
 </section>
-<section class="py-8 bg-gray-100">
-    <div class="container px-2 pt-4 pb-12 mx-auto text-gray-800">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+<section class="py-8 bg-gray-100 wow animate__animated animate__fadeInDown">
+    <div class="container px-2 pt-4 pb-12 mx-auto text-gray-800 ">
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 ">
             Pricing
         </h2>
-        <div class="w-full mb-4">
+        <div class="w-full mb-4 ">
             <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-25 gradient"></div>
         </div>
         <div class="flex flex-col justify-center pt-12 my-12 sm:flex-row sm:my-4">
             <div class="flex flex-col w-5/6 mx-auto mt-4 bg-white rounded-none lg:w-1/4 lg:mx-0 lg:rounded-l-lg">
-                <div class="flex-1 overflow-hidden text-gray-600 bg-white rounded-t rounded-b-none shadow">
-                    <div class="p-8 text-3xl font-bold text-center border-b-4">
+                <div class="flex-1 overflow-hidden text-gray-600 bg-white rounded-t rounded-b-none shadow ">
+                    <div class="p-8 text-3xl font-bold text-center border-b-4 ">
                         Free
                     </div>
-                    <ul class="w-full text-sm text-center">
-                        <li class="py-4 border-b">Thing</li>
-                        <li class="py-4 border-b">Thing</li>
-                        <li class="py-4 border-b">Thing</li>
+                    <ul class="w-full text-sm text-center ">
+                        <li class="py-4 border-b ">Thing</li>
+                        <li class="py-4 border-b ">Thing</li>
+                        <li class="py-4 border-b ">Thing</li>
                     </ul>
                 </div>
-                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-                    <div class="w-full pt-6 text-3xl font-bold text-center text-gray-600">
+                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow ">
+                    <div class="w-full pt-6 text-3xl font-bold text-center text-gray-600 ">
                         £0
-                        <span class="text-base">for one user</span>
+                        <span class="text-base ">for one user</span>
                     </div>
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-center justify-center ">
                         <button
                             class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                             Sign Up
@@ -564,22 +565,22 @@
                 </div>
             </div>
             <div class="z-10 flex flex-col w-5/6 mx-auto mt-4 bg-white rounded-lg shadow-lg lg:w-1/3 lg:mx-0 sm:-mt-6">
-                <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
-                    <div class="w-full p-8 text-3xl font-bold text-center">Basic</div>
+                <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow ">
+                    <div class="w-full p-8 text-3xl font-bold text-center ">Basic</div>
                     <div class="w-full h-1 py-0 my-0 rounded-t gradient"></div>
-                    <ul class="w-full text-base font-bold text-center">
-                        <li class="py-4 border-b">Thing</li>
-                        <li class="py-4 border-b">Thing</li>
-                        <li class="py-4 border-b">Thing</li>
-                        <li class="py-4 border-b">Thing</li>
+                    <ul class="w-full text-base font-bold text-center ">
+                        <li class="py-4 border-b ">Thing</li>
+                        <li class="py-4 border-b ">Thing</li>
+                        <li class="py-4 border-b ">Thing</li>
+                        <li class="py-4 border-b ">Thing</li>
                     </ul>
                 </div>
-                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-                    <div class="w-full pt-6 text-4xl font-bold text-center">
+                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow ">
+                    <div class="w-full pt-6 text-4xl font-bold text-center ">
                         £x.99
-                        <span class="text-base">/ per user</span>
+                        <span class="text-base ">/ per user</span>
                     </div>
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-center justify-center ">
                         <button
                             class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                             Sign Up
@@ -588,22 +589,22 @@
                 </div>
             </div>
             <div class="flex flex-col w-5/6 mx-auto mt-4 bg-white rounded-none lg:w-1/4 lg:mx-0 lg:rounded-l-lg">
-                <div class="flex-1 overflow-hidden text-gray-600 bg-white rounded-t rounded-b-none shadow">
-                    <div class="p-8 text-3xl font-bold text-center border-b-4">
+                <div class="flex-1 overflow-hidden text-gray-600 bg-white rounded-t rounded-b-none shadow ">
+                    <div class="p-8 text-3xl font-bold text-center border-b-4 ">
                         Pro
                     </div>
-                    <ul class="w-full text-sm text-center">
-                        <li class="py-4 border-b">Thing</li>
-                        <li class="py-4 border-b">Thing</li>
-                        <li class="py-4 border-b">Thing</li>
+                    <ul class="w-full text-sm text-center ">
+                        <li class="py-4 border-b ">Thing</li>
+                        <li class="py-4 border-b ">Thing</li>
+                        <li class="py-4 border-b ">Thing</li>
                     </ul>
                 </div>
-                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow">
-                    <div class="w-full pt-6 text-3xl font-bold text-center text-gray-600">
+                <div class="flex-none p-6 mt-auto overflow-hidden bg-white rounded-t-none rounded-b shadow ">
+                    <div class="w-full pt-6 text-3xl font-bold text-center text-gray-600 ">
                         £x.99
-                        <span class="text-base">/ per user</span>
+                        <span class="text-base ">/ per user</span>
                     </div>
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-center justify-center ">
                         <button
                             class="px-8 py-4 mx-auto my-6 font-bold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg lg:mx-0 hover:underline gradient focus:outline-none focus:shadow-outline hover:scale-105">
                             Sign Up

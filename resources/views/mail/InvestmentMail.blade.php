@@ -1,4 +1,4 @@
-<x-mail::message>
+<x-mail::message></x-mail::message>
 # Hello {{ $mailData['name'] }} {{ $mailData['firstname'] }},
 
 Vous venez de faire une demande d'investissement Chez Bank Trading .

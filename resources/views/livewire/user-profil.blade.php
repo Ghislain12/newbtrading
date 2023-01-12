@@ -1,6 +1,5 @@
 @section('title', 'Mon profil')
 <div class="flex flex-col min-h-screen py-12 sm:px-6 lg:px-48">
-    {{-- <h1 class="animate__animated animate__bounce">An animated element</h1> --}}
     <div class="grid mt-5 text-center justify-items-center animate__animated animate__bounce">
         @if (Auth::user()->image == null)
         <img src="{{ 'https://ui-avatars.com/api/?background=0000FF&color=ffff/?uppercase=true&name=' . Auth::user()->name. '+' . Auth::user()->firstname}}"
