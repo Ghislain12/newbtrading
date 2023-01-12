@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::get('password/confirm', Confirm::class)
         ->name('password.confirm');
 });
+Route::get('contact', Contact::class)->name('contact');
 
 Route::middleware('auth')->group(function () {
     Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
@@ -71,7 +72,6 @@ Route::middleware('auth')->group(function () {
     Route::get('clients/{id}', ClientOperations::class)->name('clients.operations');
     Route::get('profil', UserProfil::class)->name('users.profil');
     Route::get('services', Services::class)->name('services');
-    Route::get('contact', Contact::class)->name('contact');
     Route::get('services/details', DetailService::class)->name('services.details');
     Route::get('investmenForm', InvestmentForm::class)->name('investmentform');
     Route::post('avatar', [AvatarController::class, 'save'])->name('avatar.change');
