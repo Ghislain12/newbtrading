@@ -3,7 +3,7 @@
         <div class="inline-block min-w-full py-4 sm:px-6 lg:px-8">
             <div class="">
                 <table class="min-w-full text-center">
-                    <thead class="bg-orange-400 border-b">
+                    <thead class="bg-red-600 border-b">
                         <tr>
                             <th scope="col" class="px-6 py-4 text-sm font-medium text-white">
                                 Avatar

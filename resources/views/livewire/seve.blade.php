@@ -11,7 +11,7 @@
         <div class="relative block bg-white rounded-lg shadow-lg">
           <div class="flex">
             <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/002.webp" class="w-full" />
               <a href="{{ route('services.details') }}">
@@ -39,7 +39,7 @@
         <div class="relative block bg-white rounded-lg shadow-lg">
           <div class="flex">
             <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/066.webp" class="w-full" />
               <a href="{{ route('services.details') }}">
@@ -67,7 +67,7 @@
         <div class="relative block bg-white rounded-lg shadow-lg">
           <div class="flex">
             <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
               <a href="{{ route('services.details') }}">
@@ -94,7 +94,7 @@
         <div class="relative block bg-white rounded-lg shadow-lg">
           <div class="flex">
             <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
               <a href="#!">
@@ -121,7 +121,7 @@
         <div class="relative block bg-white rounded-lg shadow-lg">
           <div class="flex">
             <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
               <a href="{{ route('services.details') }}">
@@ -147,7 +147,7 @@
         <div class="relative block bg-white rounded-lg shadow-lg">
           <div class="flex">
             <div
-              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
               <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
               <a href="{{ route('services.details') }}">

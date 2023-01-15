@@ -28,17 +28,14 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {!! RecaptchaV3::initJs() !!}
     <style>
         .gradient {
             background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
         }
     </style>
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    {!! RecaptchaV3::initJs() !!}
 </head>
-
-{{-- <x-header></x-header> --}}
 @livewire('navbar')
 
 <body>

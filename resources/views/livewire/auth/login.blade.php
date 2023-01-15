@@ -104,7 +104,7 @@
 
                 <div class="flex justify-between items-center mb-6">
                     <div class="form-group form-check">
-                        <input wire:model.lazy="remember" id="remember" type="checkbox"
+                        <input wire:model.lazy="remember" id="remember" type="checkbox" 
                             class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-orange-500 checked:border-orange-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer">
                         <label class="form-check-label inline-block text-gray-800" for="exampleCheck2">Remember
                             me</label>
@@ -116,7 +116,7 @@
 
                 <!-- Submit button -->
                 <button type="submit"
-                    class="inline-block px-7 py-3 bg-orange-600	 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                    class="inline-block px-7 py-3 bg-red-600	 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                     data-mdb-ripple="true" data-mdb-ripple-color="light">
                     Connexion
                 </button>

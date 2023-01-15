@@ -1,6 +1,6 @@
 <nav id="header" class="fixed top-0 z-30 w-full mb-10 text-white"
     style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);">
-    <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
+    <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0h h-20" style="height: 80px;">
         <div class="flex items-center pl-4">
             <a class="text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-4xl" href="/">
                 <!--Icon from: http://www.potlabicons.com/ -->

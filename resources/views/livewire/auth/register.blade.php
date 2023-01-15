@@ -15,7 +15,7 @@
                     <div class="mb-6">
                         <input wire:model.lazy="name" id="name" name="name" type="name" autofocus
                             value="{{ old('name') }}"
-                            class="block w-full px-4 py-2 m-0 text-xl font-normal text-gray-700 capitalize transition ease-in-out bg-white border border-gray-300 border-solid rounded form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            class="block w-full px-4 py-2 m-0 text-xl font-normal text-gray-700 capitalize transition ease-in-out bg-white border border-gray-300 border-solid rounded form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
                             placeholder="Nom" />
                         @error('name')
                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -61,7 +61,7 @@
                 @enderror
 
                 <!-- phone input -->
-                <div class="flex mb-6">
+                <div class="flex mb-6 gap-2">
                     <select wire:model='country' style="width: 20%;" class="rounded" name="" id="">
                         <option value="">Pays</option>
                         @foreach($countryList as $country)
@@ -112,7 +112,7 @@
 
                 <!-- Submit button -->
                 <button type="submit"
-                    class="inline-block w-full py-3 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out bg-blue-600 rounded shadow-md px-7 hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+                    class="inline-block w-full py-3 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out bg-red-600 rounded shadow-md px-7 hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
                     data-mdb-ripple="true" data-mdb-ripple-color="light">
                     Inscription
                 </button>
@@ -122,8 +122,8 @@
                     <p class="mx-4 mb-0 font-semibold text-center">OR</p>
                 </div>
 
-                <a class="flex items-center justify-center w-full py-3 mb-3 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out rounded shadow-md px-7 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
-                    style="background-color: #3b5998" href="#!" role="button" data-mdb-ripple="true"
+                <a class="flex items-center justify-center w-full py-3 mb-3 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out rounded shadow-md px-7 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg bg-red-600"
+                    href="#!" role="button" data-mdb-ripple="true"
                     data-mdb-ripple-color="light">
                     <!-- Facebook -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-3.5 h-3.5 mr-2">
@@ -132,8 +132,8 @@
                             d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
                     </svg>Continue with Facebook
                 </a>
-                <a class="flex items-center justify-center w-full py-3 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out rounded shadow-md px-7 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
-                    style="background-color: #55acee" href="#!" role="button" data-mdb-ripple="true"
+                <a class="flex items-center justify-center w-full py-3 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out rounded shadow-md px-7 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg bg-red-600"
+                    href="#!" role="button" data-mdb-ripple="true"
                     data-mdb-ripple-color="light">
                     <!-- Twitter -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3.5 h-3.5 mr-2">
