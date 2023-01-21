@@ -1,16 +1,12 @@
-<nav id="header" class="fixed top-0 z-30 w-full mb-10 text-white"
+<nav id="header" class="fixed top-0 z-30 w-full mb-10 text-white "
     style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);">
-    <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0h h-20" style="height: 80px;">
+    <div class="container flex flex-wrap items-center justify-between w-full h-20 py-2 mx-auto mt-0h"
+        style="height: 120px;">
         <div class="flex items-center pl-4">
-            <a class="text-2xl font-bold text-white no-underline toggleColour hover:no-underline lg:text-4xl" href="/">
-                <!--Icon from: http://www.potlabicons.com/ -->
-                <svg class="inline h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
-                    <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502"
-                        transform="matrix(1,0,0,1,0,0)" />
-                    <path class="plane-take-off"
-                        d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z " />
-                </svg>
-                Btrading
+            <a class="flex flex-col text-sm font-bold text-white no-underline toggleColour hover:no-underline lg:text-sm"
+                href="/">
+                <img style="width: 100px; height:60px" src="{{ asset('image/logo.png') }}" alt="">
+                Bank Trading
             </a>
         </div>
         <div class="block pr-4 lg:hidden">
@@ -27,14 +23,18 @@
             <ul class="items-center justify-end flex-1 list-reset lg:flex">
                 <li class="mr-3">
                     <a class="inline-block px-4 py-2 font-bold text-black no-underline"
+                        href="/">Accueil</a>
+                </li>
+                <li class="mr-3">
+                    <a class="inline-block px-4 py-2 font-bold text-black no-underline"
                         href="{{ route('services') }}">Services</a>
                 </li>
                 <li class="mr-3">
-                    <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
+                    <a class="inline-block px-4 py-2 font-bold text-black no-underline hover:text-gray-800 hover:text-underline"
                         href="#">A propos</a>
                 </li>
                 <li class="mr-3">
-                    <a class="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
+                    <a class="inline-block px-4 py-2 font-bold text-black no-underline hover:text-gray-800 hover:text-underline"
                         href="{{ route('contact') }}">Contact</a>
                 </li>
             </ul>
@@ -43,7 +43,7 @@
 
 
             <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center text-sm font-medium text-gray-900 uppercase rounded-full hover:text-white dark:hover:text-white md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
+                class="flex items-center text-sm font-bold text-gray-900 uppercase rounded-full hover:text-white dark:hover:text-white md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
                 type="button">
                 <span class="sr-only">Open user menu</span>
                 @if (Auth::user()->image == null)
