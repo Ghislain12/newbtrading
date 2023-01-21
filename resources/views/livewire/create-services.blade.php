@@ -29,7 +29,7 @@
                     <div>
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Description</label>
-                        <textarea name="description" id="myeditorinstance" rows="1"
+                        <textarea name="description" id="" rows="1"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                     </div>
                     @error('description')
@@ -38,7 +38,7 @@
                     <div>
                         <label for="advantages" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Avantages</label>
-                        <textarea name="advantages" id="myeditorinstance" rows="1"
+                        <textarea name="advantages" id="" rows="1"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                     </div>
                     @error('advantages')
@@ -47,7 +47,7 @@
                     <div>
                         <label for="terms" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Termes</label>
-                        <textarea name="terms" id="myeditorinstance" rows="1"
+                        <textarea name="terms" id="" rows="1"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                     </div>
                     @error('terms')

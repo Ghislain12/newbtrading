@@ -25,7 +25,9 @@ class Services extends Component
     {
         $this->deletedId->delete();
         session()->flash('success', 'Service supprimé avec succès');
+        return redirect()->route('users.dashboard');
     }
+
     public function render()
     {
         return view('livewire.services');

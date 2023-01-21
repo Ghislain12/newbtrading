@@ -1,22 +1,22 @@
 <div>
-    <div class="container my-24 px-6 mx-auto">
+    <div class="container px-6 mx-auto my-24">
 
   <!-- Section: Design Block -->
   <section class="mb-32 text-gray-800">
     
-    <h2 class="text-3xl font-bold mb-12 text-center">Projects we are proud of</h2>
+    <h2 class="mb-12 text-3xl font-bold text-center">{{ $service->label }}</h2>
 
     <div class="flex flex-wrap items-center">
-      <div class="grow-0 shrink-0 basis-auto w-full lg:w-5/12 mb-12 lg:mb-0 md:px-6">
+      <div class="w-full mb-12 grow-0 shrink-0 basis-auto lg:w-5/12 lg:mb-0 md:px-6">
         <div class="relative overflow-hidden bg-no-repeat bg-cover rounded-lg shadow-lg" data-mdb-ripple="true"
           data-mdb-ripple-color="light" style="background-position: 50%">
           <img src="https://mdbootstrap.com/img/new/textures/full/126.jpg" class="w-full" />
           <a href="#!">
-            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+            <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full overflow-hidden bg-fixed"
               style="background-color: rgba(0, 0, 0, 0.4)">
-              <div class="flex justify-center items-center h-full">
-                <div class="px-6 py-12 md:px-12 text-white text-center">
-                  <h3 class="text-2xl uppercase font-bold mb-6">
+              <div class="flex items-center justify-center h-full">
+                <div class="px-6 py-12 text-center text-white md:px-12">
+                  <h3 class="mb-6 text-2xl font-bold uppercase">
                     The future is <u style="color: hsl(231, 52.6%, 85%)">now</u>
                   </h3>
                   <p style="color: hsl(231, 52.6%, 85%)">
@@ -30,14 +30,14 @@
             </div>
             <div class="relative overflow-hidden bg-no-repeat bg-cover">
               <div
-                class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+                class="absolute top-0 bottom-0 left-0 right-0 w-full h-full overflow-hidden transition duration-300 ease-in-out bg-fixed opacity-0 hover:opacity-100"
                 style="background-color: rgba(251, 251, 251, 0.2)"></div>
             </div>
           </a>
         </div>
       </div>
 
-      <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12 md:px-6">
+      <div class="w-full grow-0 shrink-0 basis-auto lg:w-7/12 md:px-6">
         <div class="flex mb-12">
           <div class="shrink-0">
             <div class="p-4 rounded-md shadow-lg" style="background-color: hsl(231, 52.6%, 20%)">
@@ -48,11 +48,10 @@
               </svg>
             </div>
           </div>
-          <div class="grow ml-4">
-            <p class="font-bold mb-1">Support 24/7</p>
+          <div class="ml-4 grow">
+            <p class="mb-1 font-bold">Description</p>
             <p class="text-gray-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil quisquam quibusdam
-              modi sapiente magni molestias pariatur facilis reprehenderit facere aliquam ex.
+              {{ $service->description }}
             </p>
           </div>
         </div>
@@ -67,11 +66,10 @@
               </svg>
             </div>
           </div>
-          <div class="grow ml-4">
-            <p class="font-bold mb-1">Safe and solid</p>
+          <div class="ml-4 grow">
+            <p class="mb-1 font-bold">Avantages</p>
             <p class="text-gray-500">
-              Eum nostrum fugit numquam, voluptates veniam neque quibusdam ullam aspernatur odio
-              soluta, quisquam dolore animi mollitia a omnis praesentium, expedita nobis!
+              {{$service->advantages}}
             </p>
           </div>
         </div>
@@ -86,17 +84,15 @@
               </svg>
             </div>
           </div>
-          <div class="grow ml-4">
-            <p class="font-bold mb-1">Extremely fast</p>
+          <div class="ml-4 grow">
+            <p class="mb-1 font-bold">Termes</p>
             <p class="text-gray-500">
-              Enim cupiditate, minus nulla dolor cumque iure eveniet facere ullam beatae hic
-              voluptatibus dolores exercitationem? Facilis debitis aspernatur amet nisi iure
-              eveniet facere?
+              {{$service->terms}}
             </p>
           </div>
         </div>
 
-        <div class="flex">
+        {{-- <div class="flex">
           <div class="shrink-0">
             <div class="p-4 rounded-md shadow-lg" style="background-color: hsl(231, 52.6%, 20%)">
               <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 544 512">
@@ -106,14 +102,14 @@
               </svg>
             </div>
           </div>
-          <div class="grow ml-4">
-            <p class="font-bold mb-1">Live analytics</p>
+          <div class="ml-4 grow">
+            <p class="mb-1 font-bold">Live analytics</p>
             <p class="text-gray-500">
               Illum doloremque ea, blanditiis sed dolor laborum praesentium maxime sint,
               consectetur atque ipsum ab adipisci ullam aspernatur odio soluta, quisquam dolore
             </p>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
     
